@@ -1,4 +1,4 @@
-FROM webhippie/alpine:linux-arm32v6
+FROM webhippie/alpine:arm32v6
 
 RUN apk update && \
 	apk upgrade && \
