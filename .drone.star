@@ -370,7 +370,7 @@ def binary(ctx, name):
         'image': 'toolhippie/calens:latest',
         'pull': 'always',
         'commands': [
-          'calens --version %s | tee dist/CHANGELOG.md' % ctx.build.ref.replace("refs/tags/v", "")
+          'calens --version %s -o dist/CHANGELOG.md' % ctx.build.ref.replace("refs/tags/v", "")
         ],
         'when': {
           'event': [
