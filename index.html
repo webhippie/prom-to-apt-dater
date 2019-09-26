@@ -367,6 +367,10 @@
 
 			<nav>
 				
+					<a href="#about">
+						About
+					</a>
+				
 					<a href="#getting-started">
 						Getting Started
 					</a>
@@ -383,6 +387,22 @@
 		</section>
 
 		
+			<section id="about">
+				<h1>
+					<a href="#about">
+						About
+					</a>
+
+					<small>
+						<a href="#html">
+							Back to Top
+						</a>
+					</small>
+				</h1>
+
+				This services can generate automatically hosts configuration files for <a href="https://github.com/DE-IBH/apt-dater">apt-dater</a> from <a href="https://prometheus.io/">Prometheus</a> targets which get fetched from the regular API. You can use the builtin filter mechanism powered by <a href="github.com/Knetic/govaluate">Govaluate</a> to limit the hosts and to gather the server group, name and address.
+			</section>
+		
 			<section id="getting-started">
 				<h1>
 					<a href="#getting-started">
@@ -398,23 +418,133 @@
 
 				<h2 id="installation">Installation</h2>
 
+<p>So far we are offering two different variants for the installation. You can choose between <a href="https://www.docker.com/">Docker</a> or pre-built binaries which are stored on our download mirror and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.</p>
+
+<h3 id="docker">Docker</h3>
+
+<p>TBD</p>
+
+<h3 id="binaries">Binaries</h3>
+
 <p>TBD</p>
 
 <h2 id="configuration">Configuration</h2>
+
+<p>We provide overall three different variants of configuration. The variant based on environment variables and commandline flags are split up into global values and command-specific values.</p>
 
 <h3 id="envrionment-variables">Envrionment variables</h3>
 
 <p>If you prefer to configure the service with environment variables you can see the available variables below.</p>
 
+<h4 id="global">Global</h4>
+
 <dl>
-<dt>PROM_TO_APTDATER_EXAMPLE<br /></dt>
-<dd>An example env variable, defaults to <code>foo</code><br />
+<dt>PROM_TO_APTDATER_LOG_LEVEL<br /></dt>
+<dd>Set logging level, defaults to <code>info</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_LOG_COLOR<br /></dt>
+<dd>Enable colored logging, defaults to <code>true</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_LOG_PRETTY<br /></dt>
+<dd>Enable pretty logging, defaults to <code>true</code><br />
+<br /></dd>
+</dl>
+
+<h4 id="generate">Generate</h4>
+
+<dl>
+<dt>PROM_TO_APTDATER_PROMETHEUS_URL<br /></dt>
+<dd>URL to access Prometheus, defaults to <code>http://localhost:9090</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_PROMETHEUS_USERNAME<br /></dt>
+<dd>Username to access Prometheus, no default value<br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_PROMETHEUS_PASSWORD<br /></dt>
+<dd>Password to access Prometheus, no default value<br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_FILTER<br /></dt>
+<dd>Query to filter host results, no default value<br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_GROUP<br /></dt>
+<dd>Attribute to define the group, defaults to <code>job</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_NAME<br /></dt>
+<dd>Attribute to name the host, defaults to <code>[__address__]</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_HOST<br /></dt>
+<dd>Attribute to access the host, defaults to <code>[__address__]</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_FILE<br /></dt>
+<dd>Path to generated hosts file, no default value<br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_TEMPLATE<br /></dt>
+<dd>Path to optional hosts template, no default value<br />
+<br /></dd>
+</dl>
+
+<h3 id="commandline-flags">Commandline flags</h3>
+
+<p>If you prefer to configure the service with commandline flags you can see the available variables below.</p>
+
+<h4 id="global-1">Global</h4>
+
+<dl>
+<dt>&ndash;log-level<br /></dt>
+<dd>Set logging level, defaults to <code>info</code><br />
+<br /></dd>
+<dt>&ndash;log-color<br /></dt>
+<dd>Enable colored logging, defaults to <code>true</code><br />
+<br /></dd>
+<dt>&ndash;log-pretty<br /></dt>
+<dd>Enable pretty logging, defaults to <code>true</code><br />
+<br /></dd>
+</dl>
+
+<h4 id="generate-1">Generate</h4>
+
+<dl>
+<dt>&ndash;prometheus-url<br /></dt>
+<dd>URL to access Prometheus, defaults to <code>http://localhost:9090</code><br />
+<br /></dd>
+<dt>&ndash;prometheus-username<br /></dt>
+<dd>Username to access Prometheus, no default value<br />
+<br /></dd>
+<dt>&ndash;prometheus-password<br /></dt>
+<dd>Password to access Prometheus, no default value<br />
+<br /></dd>
+<dt>&ndash;output-filter<br /></dt>
+<dd>Query to filter host results, no default value<br />
+<br /></dd>
+<dt>&ndash;output-group<br /></dt>
+<dd>Attribute to define the group, defaults to <code>job</code><br />
+<br /></dd>
+<dt>&ndash;output-name<br /></dt>
+<dd>Attribute to name the host, defaults to <code>[__address__]</code><br />
+<br /></dd>
+<dt>&ndash;output-host<br /></dt>
+<dd>Attribute to access the host, defaults to <code>[__address__]</code><br />
+<br /></dd>
+<dt>&ndash;output-file<br /></dt>
+<dd>Path to generated hosts file, no default value<br />
+<br /></dd>
+<dt>&ndash;output-template<br /></dt>
+<dd>Path to optional hosts template, no default value<br />
 <br /></dd>
 </dl>
 
 <h3 id="configuration-file">Configuration file</h3>
 
-<p>If you prefer to configure the service with a configuration file you can find examples within <a href="https://github.com/webhippie/prom-to-apt-dater/tree/master/config">our repository</a>. These example configurations include all available options and also the default values. So far we support the file formats <code>JSON</code> and <code>YAML</code>.</p>
+<p>So far we support the file formats <code>JSON</code> and <code>YAML</code>, if you want to get a full example configuration just take a look at <a href="https://github.com/webhippie/prom-to-apt-dater/tree/master/config">our repository</a>, there you can always see the latest configuration format. These example configurations include all available options and the default values. The configuration file will be automatically loaded if it&rsquo;s placed at <code>/etc/prom-to-apt-dater/config.yml</code>, <code>${HOME}/.prom-to-apt-dater/config.yml</code> or <code>$(pwd)/prom-to-apt-dater/config.yml</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The program provides a few sub-commands on execution. The available configuration methods have already been mentioned above. Generally you can always see a formated help output if you execute the binary via <code>prom-to-apt-dater --help</code>.</p>
+
+<h3 id="generate-2">Generate</h3>
+
+<p>The generate command is used to generate a hosts configuration and writing it to the defined path. For further help please execute:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">prom-to-apt-dater generate --help</code></pre></div>
 
 			</section>
 		

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://webhippie.github.io/prom-to-apt-dater/about/</loc>
+    <lastmod>2018-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://webhippie.github.io/prom-to-apt-dater/getting-started/</loc>
     <lastmod>2018-05-02T00:00:00+00:00</lastmod>
   </url>

@@ -12,16 +12,24 @@
     
     
     <item>
+      <title>About</title>
+      <link>https://webhippie.github.io/prom-to-apt-dater/about/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://webhippie.github.io/prom-to-apt-dater/about/</guid>
+      <description>This services can generate automatically hosts configuration files for apt-dater from Prometheus targets which get fetched from the regular API. You can use the builtin filter mechanism powered by Govaluate to limit the hosts and to gather the server group, name and address.</description>
+    </item>
+    
+    <item>
       <title>Getting Started</title>
       <link>https://webhippie.github.io/prom-to-apt-dater/getting-started/</link>
       <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://webhippie.github.io/prom-to-apt-dater/getting-started/</guid>
-      <description>Installation TBD
-Configuration Envrionment variables If you prefer to configure the service with environment variables you can see the available variables below.
- PROM_TO_APTDATER_EXAMPLE
- An example env variable, defaults to foo
-  Configuration file If you prefer to configure the service with a configuration file you can find examples within our repository. These example configurations include all available options and also the default values. So far we support the file formats JSON and YAML.</description>
+      <description>Installation So far we are offering two different variants for the installation. You can choose between Docker or pre-built binaries which are stored on our download mirror and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.
+Docker TBD
+Binaries TBD
+Configuration We provide overall three different variants of configuration. The variant based on environment variables and commandline flags are split up into global values and command-specific values.</description>
     </item>
     
     <item>
