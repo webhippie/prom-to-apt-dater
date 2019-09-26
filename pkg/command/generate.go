@@ -43,7 +43,9 @@ func Generate() *cobra.Command {
 				output.WithFilter(viper.GetString("output.filter")),
 				output.WithGroup(viper.GetString("output.group")),
 				output.WithName(viper.GetString("output.name")),
+				output.WithUser(viper.GetString("output.user")),
 				output.WithHost(viper.GetString("output.host")),
+				output.WithPort(viper.GetString("output.port")),
 				output.WithFile(viper.GetString("output.file")),
 				output.WithTemplate(viper.GetString("output.template")),
 				output.WithTargets(targets),
@@ -93,9 +95,17 @@ func Generate() *cobra.Command {
 	viper.BindPFlag("output.name", cmd.Flags().Lookup("output-name"))
 	viper.BindEnv("output.name", "PROM_TO_APTDATER_OUTPUT_NAME")
 
+	cmd.Flags().String("output-user", "", "Attribute to detect the user")
+	viper.BindPFlag("output.user", cmd.Flags().Lookup("output-user"))
+	viper.BindEnv("output.user", "PROM_TO_APTDATER_OUTPUT_USER")
+
 	cmd.Flags().String("output-host", "", "Attribute to access the host")
 	viper.BindPFlag("output.host", cmd.Flags().Lookup("output-host"))
 	viper.BindEnv("output.host", "PROM_TO_APTDATER_OUTPUT_HOST")
+
+	cmd.Flags().String("output-port", "", "Attribute to detect the port")
+	viper.BindPFlag("output.port", cmd.Flags().Lookup("output-port"))
+	viper.BindEnv("output.port", "PROM_TO_APTDATER_OUTPUT_PORT")
 
 	cmd.Flags().String("output-file", "", "Path to generated hosts file")
 	viper.BindPFlag("output.file", cmd.Flags().Lookup("output-file"))
@@ -117,7 +127,9 @@ func init() {
 	viper.SetDefault("output.filter", "")
 	viper.SetDefault("output.group", "job")
 	viper.SetDefault("output.name", "[__address__]")
+	viper.SetDefault("output.user", "static('root')")
 	viper.SetDefault("output.host", "[__address__]")
+	viper.SetDefault("output.port", "static('22')")
 	viper.SetDefault("output.file", "")
 	viper.SetDefault("output.template", "")
 }

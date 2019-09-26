@@ -56,8 +56,14 @@ PROM_TO_APTDATER_OUTPUT_GROUP
 PROM_TO_APTDATER_OUTPUT_NAME
 : Attribute to name the host, defaults to `[__address__]`
 
+PROM_TO_APTDATER_OUTPUT_USER
+: Attribute to detect the user, defaults to `static('root')`
+
 PROM_TO_APTDATER_OUTPUT_HOST
 : Attribute to access the host, defaults to `[__address__]`
+
+PROM_TO_APTDATER_OUTPUT_PORT
+: Attribute to detect the port, defaults to `static('22')`
 
 PROM_TO_APTDATER_OUTPUT_FILE
 : Path to generated hosts file, no default value

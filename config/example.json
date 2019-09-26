@@ -8,7 +8,9 @@
 		"filter": "",
 		"group": "job",
 		"name": "[__address__]",
+		"user": "static('root')",
 		"host": "[__address__]",
+		"port": "static('22')",
 		"file": "",
 		"template": ""
 	}
