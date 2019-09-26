@@ -1,4 +1,4 @@
-FROM webhippie/alpine:arm64v8
+FROM webhippie/alpine:latest-arm64v8
 
 RUN apk update && \
 	apk upgrade && \
