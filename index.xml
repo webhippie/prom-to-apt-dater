@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prometheus to APT-Dater</title>
+    <link>https://webhippie.github.io/prom-to-apt-dater/</link>
+    <description>Recent content on Prometheus to APT-Dater</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://webhippie.github.io/prom-to-apt-dater/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://webhippie.github.io/prom-to-apt-dater/getting-started/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://webhippie.github.io/prom-to-apt-dater/getting-started/</guid>
+      <description>Installation TBD
+Configuration Envrionment variables If you prefer to configure the service with environment variables you can see the available variables below.
+ PROM_TO_APTDATER_EXAMPLE
+ An example env variable, defaults to foo
+  Configuration file If you prefer to configure the service with a configuration file you can find examples within our repository. These example configurations include all available options and also the default values. So far we support the file formats JSON and YAML.</description>
+    </item>
+    
+    <item>
+      <title>Building</title>
+      <link>https://webhippie.github.io/prom-to-apt-dater/building/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://webhippie.github.io/prom-to-apt-dater/building/</guid>
+      <description>As this project is built with Go you need to install Go first. The installation of Go is out of the scope of this document, please follow the official documentation. After the installation of Go you need to get the sources:
+go get -d github.com/webhippie/prom-to-apt-dater cd $GOPATH/src/github.com/webhippie/prom-to-apt-dater All required tool besides Go itself are bundled or getting automatically installed within the GOPATH. We are using Go modules to keep the used tools consistent to manage the dependencies.</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://webhippie.github.io/prom-to-apt-dater/license/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://webhippie.github.io/prom-to-apt-dater/license/</guid>
+      <description>This project is licensed under the Apache 2.0 license. For the license of the used libraries you have to check the respective sources.</description>
+    </item>
+    
+  </channel>
+</rss>
