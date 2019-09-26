@@ -400,7 +400,7 @@
 					</small>
 				</h1>
 
-				This services can generate automatically hosts configuration files for <a href="https://github.com/DE-IBH/apt-dater">apt-dater</a> from <a href="https://prometheus.io/">Prometheus</a> targets which get fetched from the regular API. You can use the builtin filter mechanism powered by <a href="github.com/Knetic/govaluate">Govaluate</a> to limit the hosts and to gather the server group, name and address.
+				This services can generate automatically hosts configuration files for <a href="https://github.com/DE-IBH/apt-dater">apt-dater</a> from <a href="https://prometheus.io/">Prometheus</a> targets which get fetched from the regular API. You can use the builtin filter mechanism powered by <a href="https://github.com/Knetic/govaluate">Govaluate</a> to limit the hosts and to gather the server group, name and address.
 			</section>
 		
 			<section id="getting-started">
@@ -471,8 +471,14 @@
 <dt>PROM_TO_APTDATER_OUTPUT_NAME<br /></dt>
 <dd>Attribute to name the host, defaults to <code>[__address__]</code><br />
 <br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_USER<br /></dt>
+<dd>Attribute to detect the user, defaults to <code>static('root')</code><br />
+<br /></dd>
 <dt>PROM_TO_APTDATER_OUTPUT_HOST<br /></dt>
 <dd>Attribute to access the host, defaults to <code>[__address__]</code><br />
+<br /></dd>
+<dt>PROM_TO_APTDATER_OUTPUT_PORT<br /></dt>
+<dd>Attribute to detect the port, defaults to <code>static('22')</code><br />
 <br /></dd>
 <dt>PROM_TO_APTDATER_OUTPUT_FILE<br /></dt>
 <dd>Path to generated hosts file, no default value<br />
