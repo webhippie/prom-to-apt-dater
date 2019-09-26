@@ -3,8 +3,8 @@ def main(ctx):
 
   stages = [
     docker(ctx, 'amd64'),
-    docker(ctx, 'arm64'),
-    docker(ctx, 'arm'),
+    docker(ctx, 'arm64v8'),
+    docker(ctx, 'arm32v6'),
     binary(ctx, 'linux'),
     binary(ctx, 'darwin'),
     binary(ctx, 'windows'),
@@ -146,6 +146,14 @@ def testing(ctx):
   }]
 
 def docker(ctx, arch):
+  agent = "amd64"
+
+  if arch == "arm32v6":
+    agent = "arm"
+
+  if arch == "arm64v8":
+    agent = "arm64"
+
   if ctx.build.event == "pull_request":
     settings = {
       'dry_run': True,
@@ -174,7 +182,7 @@ def docker(ctx, arch):
     'name': arch,
     'platform': {
       'os': 'linux',
-      'arch': arch,
+      'arch': agent,
     },
     'steps': [
       {
