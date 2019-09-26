@@ -1,0 +1,16 @@
+baseURL = "https://webhippie.github.io/prom-to-apt-dater/"
+languageCode = "en-us"
+title = "Prometheus to APT-Dater"
+pygmentsUseClasses = true
+
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+  smartlists = true
+  extensions = ["hardLineBreak"]
+
+[params]
+  author = "Thomas Boerger"
+  description = "Gather APT-Dater hosts from Prometheus targets"
+  keywords = "prometheus, apt-dater, hosts, updates, updater"
