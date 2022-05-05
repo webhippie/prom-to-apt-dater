@@ -1,6 +1,8 @@
 {{- range $changes := . }}{{ with $changes -}}
 # Changelog for {{ .Version }}
 
+The following sections list the changes for {{ .Version }}.
+
 ## Summary
 {{ range $entry := .Entries }}{{ with $entry }}
  * {{ .TypeShort }} #{{ .PrimaryID }}: {{ .Title }}
@@ -10,7 +12,7 @@
 {{ range $entry := .Entries }}{{ with $entry }}
  * {{ .Type }} #{{ .PrimaryID }}: {{ .Title }}
 {{ range $par := .Paragraphs }}
-   {{ wrap $par 80 3 }}
+   {{ wrapIndent $par 80 3 }}
 {{ end -}}
 {{ range $url := .IssueURLs }}
    {{ $url -}}
