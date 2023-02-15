@@ -7,9 +7,8 @@ require (
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.3.0
 	github.com/owncloud/ocis-hello v0.0.0-20190918091350-2e68e2765497
-	github.com/pkg/errors v0.8.1
-	github.com/prometheus/client_golang v1.1.0
-	github.com/restic/calens v0.0.0-20190419101620-10f36cb4a529 // indirect
+	github.com/pkg/errors v0.9.1
+	github.com/prometheus/client_golang v1.11.1
 	github.com/rs/zerolog v1.15.0
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
