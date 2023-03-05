@@ -12,9 +12,10 @@ import (
 
 var (
 	generateCmd = &cobra.Command{
-		Use:     "generate [template]",
+		Use:     "generate",
 		Aliases: []string{"gen"},
 		Short:   "Generate a host config",
+		Args:    cobra.NoArgs,
 		Run:     generateAction,
 	}
 
