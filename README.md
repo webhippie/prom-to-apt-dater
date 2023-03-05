@@ -5,7 +5,6 @@
 This project provides a tool to generate [apt-dater][aptdater] host
 configurations from your [Prometheus][prometheus] targets.
 
-
 ## Install
 
 You can download prebuilt binaries from our [GitHub releases][releases], or you
