@@ -1,6 +1,8 @@
 package command
 
 import (
+	"os"
+
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -8,128 +10,149 @@ import (
 	"github.com/webhippie/prom-to-apt-dater/pkg/prometheus"
 )
 
-// Generate is the entrypoint for the generate command.
-func Generate() *cobra.Command {
-	cmd := &cobra.Command{
-		Use:   "generate",
-		Short: "Generate a host config",
-		Long:  "",
-		RunE: func(cmd *cobra.Command, args []string) error {
-			prom, err := prometheus.New(
-				prometheus.WithURL(viper.GetString("prometheus.url")),
-				prometheus.WithUsername(viper.GetString("prometheus.username")),
-				prometheus.WithPassword(viper.GetString("prometheus.password")),
-			)
-
-			if err != nil {
-				log.Error().
-					Err(err).
-					Msg("Failed to initialize prometheus client")
-
-				return err
-			}
-
-			targets, err := prom.Targets()
-
-			if err != nil {
-				log.Error().
-					Err(err).
-					Msg("Failed to fetch targets from prometheus")
-
-				return err
-			}
-
-			outp, err := output.New(
-				output.WithFilter(viper.GetString("output.filter")),
-				output.WithGroup(viper.GetString("output.group")),
-				output.WithName(viper.GetString("output.name")),
-				output.WithUser(viper.GetString("output.user")),
-				output.WithHost(viper.GetString("output.host")),
-				output.WithPort(viper.GetString("output.port")),
-				output.WithFile(viper.GetString("output.file")),
-				output.WithTemplate(viper.GetString("output.template")),
-				output.WithTargets(targets),
-			)
-
-			if err != nil {
-				log.Error().
-					Err(err).
-					Msg("Failed to initialize output client")
-
-				return err
-			}
-
-			if err := outp.Generate(); err != nil {
-				log.Error().
-					Err(err).
-					Msg("Failed to generate hosts configuration")
-
-				return err
-			}
-
-			return nil
-		},
+var (
+	generateCmd = &cobra.Command{
+		Use:     "generate [template]",
+		Aliases: []string{"gen"},
+		Short:   "Generate a host config",
+		Run:     generateAction,
 	}
 
-	cmd.Flags().String("prometheus-url", "", "URL to access Prometheus")
-	viper.BindPFlag("prometheus.url", cmd.Flags().Lookup("prometheus-url"))
-	viper.BindEnv("prometheus.url", "PROM_TO_APTDATER_PROMETHEUS_URL")
+	defaultGeneratePrometheusURL      = "http://localhost:9090"
+	defaultGeneratePrometheusUsername = ""
+	defaultGeneratePrometheusPassword = ""
+	defaultGenerateOutputFilter       = "1 == 1"
+	defaultGenerateOutputGroup        = "job"
+	defaultGenerateOutputName         = "[__address__]"
+	defaultGenerateOutputUser         = "static('root')"
+	defaultGenerateOutputHost         = "[__address__]"
+	defaultGenerateOutputPort         = "static('22')"
+	defaultGenerateOutputFile         = ""
+	defaultGenerateOutputTemplate     = ""
+)
 
-	cmd.Flags().String("prometheus-username", "", "Username to access Prometheus")
-	viper.BindPFlag("prometheus.username", cmd.Flags().Lookup("prometheus-username"))
-	viper.BindEnv("prometheus.username", "PROM_TO_APTDATER_PROMETHEUS_USERNAME")
+func init() {
+	rootCmd.AddCommand(generateCmd)
 
-	cmd.Flags().String("prometheus-password", "", "Password to access Prometheus")
-	viper.BindPFlag("prometheus.password", cmd.Flags().Lookup("prometheus-password"))
-	viper.BindEnv("prometheus.password", "PROM_TO_APTDATER_PROMETHEUS_PASSWORD")
+	generateCmd.PersistentFlags().String("prometheus-url", defaultGeneratePrometheusURL, "URL to access Prometheus")
+	viper.SetDefault("prometheus.url", defaultGeneratePrometheusURL)
+	viper.BindPFlag("prometheus.url", generateCmd.PersistentFlags().Lookup("prometheus-url"))
 
-	cmd.Flags().String("output-filter", "", "Query to filter host results")
-	viper.BindPFlag("output.filter", cmd.Flags().Lookup("output-filter"))
-	viper.BindEnv("output.filter", "PROM_TO_APTDATER_OUTPUT_FILTER")
+	generateCmd.PersistentFlags().String("prometheus-username", defaultGeneratePrometheusUsername, "Username to access Prometheus")
+	viper.SetDefault("prometheus.username", defaultGeneratePrometheusUsername)
+	viper.BindPFlag("prometheus.username", generateCmd.PersistentFlags().Lookup("prometheus-username"))
 
-	cmd.Flags().String("output-group", "", "Attribute to define the group")
-	viper.BindPFlag("output.group", cmd.Flags().Lookup("output-group"))
-	viper.BindEnv("output.group", "PROM_TO_APTDATER_OUTPUT_GROUP")
+	generateCmd.PersistentFlags().String("prometheus-password", defaultGeneratePrometheusPassword, "Password to access Prometheus")
+	viper.SetDefault("prometheus.password", defaultGeneratePrometheusPassword)
+	viper.BindPFlag("prometheus.password", generateCmd.PersistentFlags().Lookup("prometheus-password"))
 
-	cmd.Flags().String("output-name", "", "Attribute to name the host")
-	viper.BindPFlag("output.name", cmd.Flags().Lookup("output-name"))
-	viper.BindEnv("output.name", "PROM_TO_APTDATER_OUTPUT_NAME")
+	generateCmd.PersistentFlags().String("output-filter", defaultGenerateOutputFilter, "Query to filter host results")
+	viper.SetDefault("output.filter", defaultGenerateOutputFilter)
+	viper.BindPFlag("output.filter", generateCmd.PersistentFlags().Lookup("output-filter"))
 
-	cmd.Flags().String("output-user", "", "Attribute to detect the user")
-	viper.BindPFlag("output.user", cmd.Flags().Lookup("output-user"))
-	viper.BindEnv("output.user", "PROM_TO_APTDATER_OUTPUT_USER")
+	generateCmd.PersistentFlags().String("output-group", defaultGenerateOutputGroup, "Attribute to define the group")
+	viper.SetDefault("output.group", defaultGenerateOutputGroup)
+	viper.BindPFlag("output.group", generateCmd.PersistentFlags().Lookup("output-group"))
 
-	cmd.Flags().String("output-host", "", "Attribute to access the host")
-	viper.BindPFlag("output.host", cmd.Flags().Lookup("output-host"))
-	viper.BindEnv("output.host", "PROM_TO_APTDATER_OUTPUT_HOST")
+	generateCmd.PersistentFlags().String("output-name", defaultGenerateOutputName, "Attribute to name the host")
+	viper.SetDefault("output.name", defaultGenerateOutputName)
+	viper.BindPFlag("output.name", generateCmd.PersistentFlags().Lookup("output-name"))
 
-	cmd.Flags().String("output-port", "", "Attribute to detect the port")
-	viper.BindPFlag("output.port", cmd.Flags().Lookup("output-port"))
-	viper.BindEnv("output.port", "PROM_TO_APTDATER_OUTPUT_PORT")
+	generateCmd.PersistentFlags().String("output-user", defaultGenerateOutputUser, "Attribute to detect the user")
+	viper.SetDefault("output.user", defaultGenerateOutputUser)
+	viper.BindPFlag("output.user", generateCmd.PersistentFlags().Lookup("output-user"))
 
-	cmd.Flags().String("output-file", "", "Path to generated hosts file")
-	viper.BindPFlag("output.file", cmd.Flags().Lookup("output-file"))
-	viper.BindEnv("output.file", "PROM_TO_APTDATER_OUTPUT_FILE")
+	generateCmd.PersistentFlags().String("output-host", defaultGenerateOutputHost, "Attribute to access the host")
+	viper.SetDefault("output.host", defaultGenerateOutputHost)
+	viper.BindPFlag("output.host", generateCmd.PersistentFlags().Lookup("output-host"))
 
-	cmd.Flags().String("output-template", "", "Path to optional hosts template")
-	viper.BindPFlag("output.template", cmd.Flags().Lookup("output-template"))
-	viper.BindEnv("output.template", "PROM_TO_APTDATER_OUTPUT_TEMPLATE")
+	generateCmd.PersistentFlags().String("output-port", defaultGenerateOutputPort, "Attribute to detect the port")
+	viper.SetDefault("output.port", defaultGenerateOutputPort)
+	viper.BindPFlag("output.port", generateCmd.PersistentFlags().Lookup("output-port"))
 
-	return cmd
+	generateCmd.PersistentFlags().String("output-file", defaultGenerateOutputFile, "Path to generated hosts file")
+	viper.SetDefault("output.file", defaultGenerateOutputFile)
+	viper.BindPFlag("output.file", generateCmd.PersistentFlags().Lookup("output-file"))
+
+	generateCmd.PersistentFlags().String("output-template", defaultGenerateOutputTemplate, "Path to optional hosts template")
+	viper.SetDefault("output.template", defaultGenerateOutputTemplate)
+	viper.BindPFlag("output.template", generateCmd.PersistentFlags().Lookup("output-template"))
 }
 
-// init defined the default options for viper.
-func init() {
-	viper.SetDefault("prometheus.url", "http://localhost:9090")
-	viper.SetDefault("prometheus.username", "")
-	viper.SetDefault("prometheus.password", "")
+func generateAction(_ *cobra.Command, _ []string) {
+	prom, err := prometheus.New(
+		prometheus.WithURL(
+			viper.GetString("prometheus.url"),
+		),
+		prometheus.WithUsername(
+			viper.GetString("prometheus.username"),
+		),
+		prometheus.WithPassword(
+			viper.GetString("prometheus.password"),
+		),
+	)
 
-	viper.SetDefault("output.filter", "")
-	viper.SetDefault("output.group", "job")
-	viper.SetDefault("output.name", "[__address__]")
-	viper.SetDefault("output.user", "static('root')")
-	viper.SetDefault("output.host", "[__address__]")
-	viper.SetDefault("output.port", "static('22')")
-	viper.SetDefault("output.file", "")
-	viper.SetDefault("output.template", "")
+	if err != nil {
+		log.Error().
+			Err(err).
+			Msg("failed to initialize prometheus client")
+
+		os.Exit(1)
+	}
+
+	targets, err := prom.Targets()
+
+	if err != nil {
+		log.Error().
+			Err(err).
+			Msg("failed to fetch targets from prometheus")
+
+		os.Exit(1)
+	}
+
+	outp, err := output.New(
+		output.WithFilter(
+			viper.GetString("output.filter"),
+		),
+		output.WithGroup(
+			viper.GetString("output.group"),
+		),
+		output.WithName(
+			viper.GetString("output.name"),
+		),
+		output.WithUser(
+			viper.GetString("output.user"),
+		),
+		output.WithHost(
+			viper.GetString("output.host"),
+		),
+		output.WithPort(
+			viper.GetString("output.port"),
+		),
+		output.WithFile(
+			viper.GetString("output.file"),
+		),
+		output.WithTemplate(
+			viper.GetString("output.template"),
+		),
+		output.WithTargets(
+			targets,
+		),
+	)
+
+	if err != nil {
+		log.Error().
+			Err(err).
+			Msg("failed to initialize output client")
+
+		os.Exit(1)
+	}
+
+	if err := outp.Generate(); err != nil {
+		log.Error().
+			Err(err).
+			Msg("failed to generate hosts configuration")
+
+		os.Exit(1)
+	}
 }

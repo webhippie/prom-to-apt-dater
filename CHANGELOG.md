@@ -1,4 +1,6 @@
-# Changelog for 0.1.0
+# Changelog for unreleased
+
+The following sections list the changes for unreleased.
 
 ## Summary
 

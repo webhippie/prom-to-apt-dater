@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "Prometheus to APT-Dater"
 pygmentsUseClasses = true
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [blackfriday]
   angledQuotes = true
   fractions = false
@@ -12,5 +15,5 @@ pygmentsUseClasses = true
 
 [params]
   author = "Thomas Boerger"
-  description = "Gather APT-Dater hosts from Prometheus targets"
-  keywords = "prometheus, apt-dater, hosts, updates, updater"
+  description = "Prometheus targets for APT-Dater"
+  keywords = "updates, apt-dater, apt, prometheus"

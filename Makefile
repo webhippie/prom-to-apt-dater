@@ -1,3 +1,5 @@
+include .bingo/Variables.mk
+
 SHELL := bash
 NAME := prom-to-apt-dater
 IMPORT := github.com/webhippie/$(NAME)
@@ -6,27 +8,30 @@ DIST := dist
 
 ifeq ($(OS), Windows_NT)
 	EXECUTABLE := $(NAME).exe
+	UNAME := Windows
 else
 	EXECUTABLE := $(NAME)
+	UNAME := $(shell uname -s)
 endif
 
+GOBUILD ?= CGO_ENABLED=0 go build
 PACKAGES ?= $(shell go list ./...)
 SOURCES ?= $(shell find . -name "*.go" -type f)
 GENERATE ?= $(PACKAGES)
 
-TAGS ?=
+TAGS ?= netgo
 
 ifndef OUTPUT
-	ifneq ($(DRONE_TAG),)
-		OUTPUT ?= $(subst v,,$(DRONE_TAG))
+	ifeq ($(GITHUB_REF_TYPE), tag)
+		OUTPUT ?= $(subst v,,$(GITHUB_REF_NAME))
 	else
 		OUTPUT ?= testing
 	endif
 endif
 
 ifndef VERSION
-	ifneq ($(DRONE_TAG),)
-		VERSION ?= $(subst v,,$(DRONE_TAG))
+	ifeq ($(GITHUB_REF_TYPE), tag)
+		VERSION ?= $(subst v,,$(GITHUB_REF_NAME))
 	else
 		VERSION ?= $(shell git rev-parse --short HEAD)
 	endif
@@ -36,7 +41,12 @@ ifndef DATE
 	DATE := $(shell date -u '+%Y%m%d')
 endif
 
-LDFLAGS += -s -w -X "$(IMPORT)/pkg/version.String=$(VERSION)" -X "$(IMPORT)/pkg/version.Date=$(DATE)"
+ifndef SHA
+	SHA := $(shell git rev-parse --short HEAD)
+endif
+
+LDFLAGS += -s -w -extldflags "-static" -X "$(IMPORT)/pkg/version.String=$(VERSION)" -X "$(IMPORT)/pkg/version.Revision=$(SHA)" -X "$(IMPORT)/pkg/version.Date=$(DATE)"
+GCFLAGS += all=-N -l
 
 .PHONY: all
 all: build
@@ -48,7 +58,7 @@ sync:
 .PHONY: clean
 clean:
 	go clean -i ./...
-	rm -rf $(BIN) $(DIST) pkg/assets/embed.go
+	rm -rf $(BIN) $(DIST)
 
 .PHONY: fmt
 fmt:
@@ -59,24 +69,24 @@ vet:
 	go vet $(PACKAGES)
 
 .PHONY: staticcheck
-staticcheck:
-	go run honnef.co/go/tools/cmd/staticcheck -tags '$(TAGS)' $(PACKAGES)
+staticcheck: $(STATICCHECK)
+	$(STATICCHECK) -tags '$(TAGS)' $(PACKAGES)
 
 .PHONY: lint
-lint:
-	for PKG in $(PACKAGES); do go run golang.org/x/lint/golint -set_exit_status $$PKG || exit 1; done;
+lint: $(REVIVE)
+	for PKG in $(PACKAGES); do $(REVIVE) -config revive.toml -set_exit_status $$PKG || exit 1; done;
 
 .PHONY: generate
 generate:
 	go generate $(GENERATE)
 
 .PHONY: changelog
-changelog:
-	go run github.com/restic/calens -o CHANGELOG.md
+changelog: $(CALENS)
+	$(CALENS) >| CHANGELOG.md
 
 .PHONY: test
 test:
-	go run github.com/haya14busa/goverage -v -coverprofile coverage.out $(PACKAGES)
+	go test -coverprofile coverage.out $(PACKAGES)
 
 .PHONY: install
 install: $(SOURCES)
@@ -86,38 +96,93 @@ install: $(SOURCES)
 build: $(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SOURCES)
-	go build -i -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+	$(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(BIN)/$(EXECUTABLE)-debug: $(SOURCES)
+	$(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -gcflags '$(GCFLAGS)' -o $@ ./cmd/$(NAME)
 
 .PHONY: release
-release: release-dirs release-linux release-windows release-darwin release-copy release-check
+release: $(DIST) release-linux release-darwin release-windows release-checksum
 
-.PHONY: release-dirs
-release-dirs:
-	mkdir -p $(DIST)/binaries $(DIST)/release
+$(DIST):
+	mkdir -p $(DIST)
 
 .PHONY: release-linux
-release-linux: release-dirs
-	go run github.com/mitchellh/gox -tags 'netgo $(TAGS)' -ldflags '-extldflags "-static" $(LDFLAGS)' -os 'linux' -arch 'amd64 386 arm64 arm' -output '$(DIST)/binaries/$(EXECUTABLE)-$(OUTPUT)-{{.OS}}-{{.Arch}}' ./cmd/$(NAME)
+release-linux: $(DIST) \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-386 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-amd64 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-5 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-6 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-7 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm64 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips64 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mipsle \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips64le
 
-.PHONY: release-windows
-release-windows: release-dirs
-	go run github.com/mitchellh/gox -tags 'netgo $(TAGS)' -ldflags '-extldflags "-static" $(LDFLAGS)' -os 'windows' -arch 'amd64' -output '$(DIST)/binaries/$(EXECUTABLE)-$(OUTPUT)-{{.OS}}-{{.Arch}}' ./cmd/$(NAME)
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-386:
+	GOOS=linux GOARCH=386 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-amd64:
+	GOOS=linux GOARCH=amd64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-5:
+	GOOS=linux GOARCH=arm GOARM=5 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-6:
+	GOOS=linux GOARCH=arm GOARM=6 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm-7:
+	GOOS=linux GOARCH=arm GOARM=7 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-arm64:
+	GOOS=linux GOARCH=arm64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips:
+	GOOS=linux GOARCH=mips $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips64:
+	GOOS=linux GOARCH=mips64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mipsle:
+	GOOS=linux GOARCH=mipsle $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-linux-mips64le:
+	GOOS=linux GOARCH=mips64le $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
 
 .PHONY: release-darwin
-release-darwin: release-dirs
-	go run github.com/mitchellh/gox -tags 'netgo $(TAGS)' -ldflags '$(LDFLAGS)' -os 'darwin' -arch 'amd64' -output '$(DIST)/binaries/$(EXECUTABLE)-$(OUTPUT)-{{.OS}}-{{.Arch}}' ./cmd/$(NAME)
+release-darwin: $(DIST) \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-darwin-amd64 \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-darwin-arm64
 
-.PHONY: release-copy
-release-copy:
-	$(foreach file,$(wildcard $(DIST)/binaries/$(EXECUTABLE)-*),cp $(file) $(DIST)/release/$(notdir $(file));)
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-darwin-amd64:
+	GOOS=darwin GOARCH=amd64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
 
-.PHONY: release-check
-release-check:
-	cd $(DIST)/release; $(foreach file,$(wildcard $(DIST)/release/$(EXECUTABLE)-*),sha256sum $(notdir $(file)) > $(notdir $(file)).sha256;)
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-darwin-arm64:
+	GOOS=darwin GOARCH=arm64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+.PHONY: release-windows
+release-windows: $(DIST) \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-windows-4.0-386.exe \
+	$(DIST)/$(EXECUTABLE)-$(OUTPUT)-windows-4.0-amd64.exe
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-windows-4.0-386.exe:
+	GOOS=windows GOARCH=386 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+$(DIST)/$(EXECUTABLE)-$(OUTPUT)-windows-4.0-amd64.exe:
+	GOOS=windows GOARCH=amd64 $(GOBUILD) -v -tags '$(TAGS)' -ldflags '$(LDFLAGS)' -o $@ ./cmd/$(NAME)
+
+.PHONY: release-reduce
+release-reduce:
+	cd $(DIST); $(foreach file,$(wildcard $(DIST)/$(EXECUTABLE)-*),upx $(notdir $(file));)
+
+.PHONY: release-checksum
+release-checksum:
+	cd $(DIST); $(foreach file,$(wildcard $(DIST)/$(EXECUTABLE)-*),sha256sum $(notdir $(file)) > $(notdir $(file)).sha256;)
 
 .PHONY: release-finish
-release-finish: release-copy release-check
+release-finish: release-reduce release-checksum
 
 .PHONY: docs
 docs:
-	cd docs; hugo
+	hugo -s docs/
