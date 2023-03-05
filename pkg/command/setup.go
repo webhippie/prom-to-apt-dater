@@ -9,8 +9,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-// setupLogger prepares the logger.
-func setupLogger() {
+func setupLogger() error {
 	switch strings.ToLower(viper.GetString("log.level")) {
 	case "panic":
 		zerolog.SetGlobalLevel(zerolog.PanicLevel)
@@ -36,33 +35,51 @@ func setupLogger() {
 			},
 		)
 	}
+
+	return nil
 }
 
-// setupConfig prepares the config.
 func setupConfig() {
-	viper.SetConfigName("config")
-
-	viper.AddConfigPath("/etc/prom-to-apt-dater")
-	viper.AddConfigPath("$HOME/.prom-to-apt-dater")
-	viper.AddConfigPath("./config")
-
-	if err := viper.ReadInConfig(); err != nil {
-		switch err.(type) {
-		case viper.ConfigFileNotFoundError:
-			log.Debug().
-				Msg("Continue without config file")
-		case viper.UnsupportedConfigError:
-			log.Fatal().
-				Msg("Unsupported config type")
-		default:
-			if e := log.Debug(); e.Enabled() {
-				log.Fatal().
-					Err(err).
-					Msg("Failed to read config")
-			} else {
-				log.Fatal().
-					Msg("Failed to read config")
-			}
-		}
+	if viper.GetString("config.file") != "" {
+		viper.SetConfigFile(viper.GetString("config.file"))
+	} else {
+		viper.SetConfigName("config")
+		viper.AddConfigPath("/etc/prom-to-apt-dater")
+		viper.AddConfigPath("$HOME/.prom-to-apt-dater")
+		viper.AddConfigPath("./prom-to-apt-dater")
 	}
+
+	viper.SetEnvPrefix("prom-to-apt-dater")
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.AutomaticEnv()
+
+	if err := readConfig(); err != nil {
+		log.Error().
+			Err(err).
+			Msg("Failed to read config file")
+	}
+
+	if err := viper.Unmarshal(cfg); err != nil {
+		log.Error().
+			Err(err).
+			Msg("Failed to parse config file")
+	}
+}
+
+func readConfig() error {
+	err := viper.ReadInConfig()
+
+	if err == nil {
+		return nil
+	}
+
+	if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+		return nil
+	}
+
+	if _, ok := err.(*os.PathError); ok {
+		return nil
+	}
+
+	return err
 }

@@ -3,7 +3,6 @@ package output
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"text/template"
 
@@ -135,12 +134,12 @@ func (c *Client) Generate() error {
 // Writer writes the generated content into a file.
 func (c *Client) Writer(content string) error {
 	if c.file == "-" {
-		fmt.Fprintf(
+		fmt.Fprint(
 			os.Stdout,
 			content,
 		)
 	} else {
-		if err := ioutil.WriteFile(
+		if err := os.WriteFile(
 			c.file,
 			[]byte(content),
 			0644,
@@ -162,7 +161,7 @@ func (c *Client) Template(groups Groups) (string, error) {
 			return "", fmt.Errorf("template file does not exist")
 		}
 
-		content, err := ioutil.ReadFile(c.template)
+		content, err := os.ReadFile(c.template)
 
 		if err != nil {
 			return "", fmt.Errorf("failed to read template content")

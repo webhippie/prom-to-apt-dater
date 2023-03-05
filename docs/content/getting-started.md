@@ -14,7 +14,10 @@ packages for the major distributions later if we see the need for it.
 
 ### Docker
 
-TBD
+Generally we are offering the images through
+[quay.io/webhippie/prom-to-apt-dater][quay] and
+[webhippie/prom-to-apt-dater][dockerhub], so feel free to choose one of the
+providers. Maybe we will come up with Kustomize manifests or some Helm chart.
 
 ### Binaries
 
@@ -44,6 +47,44 @@ PROM_TO_APT_DATER_LOG_COLOR
 PROM_TO_APT_DATER_LOG_PRETTY
 : Enable pretty logging, defaults to `true`
 
+### Generate
+
+PROM_TO_APT_DATER_LOG_LEVEL
+: Set logging level, defaults to `info`
+
+PROM_TO_APT_DATER_PROMETHEUS_URL
+: URL to access Prometheus, defaults to `http://localhost:9090`
+
+PROM_TO_APT_DATER_PROMETHEUS_USERNAME
+: Username to access Prometheus
+
+PROM_TO_APT_DATER_PROMETHEUS_PASSWORD
+: Password to access Prometheus
+
+PROM_TO_APT_DATER_OUTPUT_FILTER
+: Query to filter host results, defaults to `1 == 1`
+
+PROM_TO_APT_DATER_OUTPUT_GROUP
+: Attribute to define the group, defaults to `job`
+
+PROM_TO_APT_DATER_OUTPUT_NAME
+: Attribute to name the host, defaults to `[__address__]`
+
+PROM_TO_APT_DATER_OUTPUT_USER
+: Attribute to detect the user, defaults to `static('root')`
+
+PROM_TO_APT_DATER_OUTPUT_HOST
+: Attribute to access the host, defaults to `[__address__]`
+
+PROM_TO_APT_DATER_OUTPUT_PORT
+: Attribute to detect the port, defaults to `static('22')`
+
+PROM_TO_APT_DATER_OUTPUT_FILE
+: Path to generated hosts file
+
+PROM_TO_APT_DATER_OUTPUT_TEMPLATE
+: Path to optional hosts template
+
 ### Commandline flags
 
 If you prefer to configure the service with commandline flags you can see the
@@ -59,6 +100,41 @@ available variables below.
 
 --log-pretty
 : Enable pretty logging, defaults to `true`
+
+#### Generate
+
+--prometheus-url
+: URL to access Prometheus, defaults to `http://localhost:9090`
+
+--prometheus-username
+: Username to access Prometheus
+
+--prometheus-password
+: Password to access Prometheus
+
+--output-filter
+: Query to filter host results, defaults to `1 == 1`
+
+--output-group
+: Attribute to define the group, defaults to `job`
+
+--output-name
+: Attribute to name the host, defaults to `[__address__]`
+
+--output-user
+: Attribute to detect the user, defaults to `static('root')`
+
+--output-host
+: Attribute to access the host, defaults to `[__address__]`
+
+--output-port
+: Attribute to detect the port, defaults to `static('22')`
+
+--output-file
+: Path to generated hosts file
+
+--output-template
+: Path to optional hosts template
 
 ### Configuration file
 
@@ -78,5 +154,7 @@ formated help output if you execute the binary similar to something like
  `prom-to-apt-dater --help`.
 
 [docker]: https://www.docker.com/
+[quay]: https://quay.io/repository/webhippie/prom-to-apt-dater
+[dockerhub]: https://hub.docker.com/r/webhippie/prom-to-apt-dater
 [downloads]: https://dl.webhippie.de/
 [repo]: https://github.com/webhippie/prom-to-apt-dater/tree/master/config
