@@ -15,8 +15,8 @@ var (
 		Use:     "generate",
 		Aliases: []string{"gen"},
 		Short:   "Generate a host config",
-		Args:    cobra.NoArgs,
 		Run:     generateAction,
+		Args:    cobra.NoArgs,
 	}
 
 	defaultGeneratePrometheusURL      = "http://localhost:9090"
