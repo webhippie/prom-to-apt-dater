@@ -7,7 +7,7 @@ require (
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.5.1
 	github.com/pkg/errors v0.9.1
-	github.com/prometheus/client_golang v1.15.1
+	github.com/prometheus/client_golang v1.16.0
 	github.com/rs/zerolog v1.29.1
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
