@@ -2,8 +2,6 @@ module github.com/webhippie/prom-to-apt-dater
 
 go 1.23.0
 
-toolchain go1.23.0
-
 require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
