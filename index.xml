@@ -13,28 +13,28 @@
       <link>https://webhippie.github.io/prom-to-apt-dater/about/</link>
       <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/prom-to-apt-dater/about/</guid>
-      <description>This command-line tool can generate automatically host configuration files for apt-dater based on Prometheus targets which get fetched from the regular API. You can use the builtin filter mechanism powered by govaluate to limit the hosts and to gather the server group, name and address.</description>
+      <description>&lt;p&gt;This command-line tool can generate automatically host configuration files for&#xA;&lt;a href=&#34;https://github.com/DE-IBH/apt-dater&#34;&gt;apt-dater&lt;/a&gt; based on &lt;a href=&#34;https://prometheus.io/&#34;&gt;Prometheus&lt;/a&gt; targets which get&#xA;fetched from the regular API. You can use the builtin filter mechanism powered&#xA;by &lt;a href=&#34;https://github.com/Knetic/govaluate&#34;&gt;govaluate&lt;/a&gt; to limit the hosts and to gather the server group,&#xA;name and address.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started</title>
       <link>https://webhippie.github.io/prom-to-apt-dater/getting-started/</link>
       <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/prom-to-apt-dater/getting-started/</guid>
-      <description>Installation So far we are offering only a few different variants for the installation. You can choose between Docker or pre-built binaries which are stored on our download mirror and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.&#xA;Docker Generally we are offering the images through quay.io/webhippie/prom-to-apt-dater and webhippie/prom-to-apt-dater, so feel free to choose one of the providers.</description>
+      <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;p&gt;So far we are offering only a few different variants for the installation. You&#xA;can choose between &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; or pre-built binaries which are stored on&#xA;our download mirror and GitHub releases. Maybe we will also provide system&#xA;packages for the major distributions later if we see the need for it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;&#xA;&lt;p&gt;Generally we are offering the images through&#xA;&lt;a href=&#34;https://quay.io/repository/webhippie/prom-to-apt-dater&#34;&gt;quay.io/webhippie/prom-to-apt-dater&lt;/a&gt; and&#xA;&lt;a href=&#34;https://hub.docker.com/r/webhippie/prom-to-apt-dater&#34;&gt;webhippie/prom-to-apt-dater&lt;/a&gt;, so feel free to choose one of the&#xA;providers. Maybe we will come up with Kustomize manifests or some Helm chart.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building</title>
       <link>https://webhippie.github.io/prom-to-apt-dater/building/</link>
       <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/prom-to-apt-dater/building/</guid>
-      <description>As this project is built with Go you need to install Go first. The installation of Go is out of the scope of this document, please follow the official documentation. After the installation of Go you need to get the sources:&#xA;git clone https://github.com/webhippie/prom-to-apt-dater.git cd prom-to-apt-dater/ All required tool besides Go itself are bundled by Go modules, all you need is part of the Makfile:&#xA;make generate build Finally you should have the binary within the bin/ folder now, give it a try with .</description>
+      <description>&lt;p&gt;As this project is built with Go you need to install Go first. The installation&#xA;of Go is out of the scope of this document, please follow the&#xA;&lt;a href=&#34;https://golang.org/doc/install&#34;&gt;official documentation&lt;/a&gt;. After the installation of Go you need to get&#xA;the sources:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/webhippie/prom-to-apt-dater.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd prom-to-apt-dater/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;p&gt;All required tool besides Go itself are bundled by Go modules, all you need is&#xA;part of the &lt;code&gt;Makfile&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>License</title>
       <link>https://webhippie.github.io/prom-to-apt-dater/license/</link>
       <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
       <guid>https://webhippie.github.io/prom-to-apt-dater/license/</guid>
-      <description>This project is licensed under the Apache 2.0 license. For the license of the used libraries you have to check the respective sources.</description>
+      <description>&lt;p&gt;This project is licensed under the &lt;a href=&#34;https://github.com/webhippie/prom-to-apt-dater/blob/master/LICENSE&#34;&gt;Apache 2.0&lt;/a&gt; license. For the&#xA;license of the used libraries you have to check the respective sources.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
