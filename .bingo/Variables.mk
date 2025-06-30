@@ -23,15 +23,15 @@ $(CALENS): $(BINGO_DIR)/calens.mod
 	@echo "(re)installing $(GOBIN)/calens-v0.4.0"
 	@cd $(BINGO_DIR) && GOWORK=off $(GO) build -mod=mod -modfile=calens.mod -o=$(GOBIN)/calens-v0.4.0 "github.com/restic/calens"
 
-REVIVE := $(GOBIN)/revive-v1.3.9
+REVIVE := $(GOBIN)/revive-v1.10.0
 $(REVIVE): $(BINGO_DIR)/revive.mod
 	@# Install binary/ries using Go 1.14+ build command. This is using bwplotka/bingo-controlled, separate go module with pinned dependencies.
-	@echo "(re)installing $(GOBIN)/revive-v1.3.9"
-	@cd $(BINGO_DIR) && GOWORK=off $(GO) build -mod=mod -modfile=revive.mod -o=$(GOBIN)/revive-v1.3.9 "github.com/mgechev/revive"
+	@echo "(re)installing $(GOBIN)/revive-v1.10.0"
+	@cd $(BINGO_DIR) && GOWORK=off $(GO) build -mod=mod -modfile=revive.mod -o=$(GOBIN)/revive-v1.10.0 "github.com/mgechev/revive"
 
-STATICCHECK := $(GOBIN)/staticcheck-v0.5.1
+STATICCHECK := $(GOBIN)/staticcheck-v0.6.1
 $(STATICCHECK): $(BINGO_DIR)/staticcheck.mod
 	@# Install binary/ries using Go 1.14+ build command. This is using bwplotka/bingo-controlled, separate go module with pinned dependencies.
-	@echo "(re)installing $(GOBIN)/staticcheck-v0.5.1"
-	@cd $(BINGO_DIR) && GOWORK=off $(GO) build -mod=mod -modfile=staticcheck.mod -o=$(GOBIN)/staticcheck-v0.5.1 "honnef.co/go/tools/cmd/staticcheck"
+	@echo "(re)installing $(GOBIN)/staticcheck-v0.6.1"
+	@cd $(BINGO_DIR) && GOWORK=off $(GO) build -mod=mod -modfile=staticcheck.mod -o=$(GOBIN)/staticcheck-v0.6.1 "honnef.co/go/tools/cmd/staticcheck"
 
