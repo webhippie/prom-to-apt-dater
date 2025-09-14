@@ -9,7 +9,7 @@ import (
 
 func main() {
 	if env := os.Getenv("PROM_TO_APT_DATER_ENV_FILE"); env != "" {
-		godotenv.Load(env)
+		_ = godotenv.Load(env)
 	}
 
 	if err := command.Run(); err != nil {

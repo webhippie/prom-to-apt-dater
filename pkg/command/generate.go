@@ -37,47 +37,47 @@ func init() {
 
 	generateCmd.PersistentFlags().String("prometheus-url", defaultGeneratePrometheusURL, "URL to access Prometheus")
 	viper.SetDefault("prometheus.url", defaultGeneratePrometheusURL)
-	viper.BindPFlag("prometheus.url", generateCmd.PersistentFlags().Lookup("prometheus-url"))
+	_ = viper.BindPFlag("prometheus.url", generateCmd.PersistentFlags().Lookup("prometheus-url"))
 
 	generateCmd.PersistentFlags().String("prometheus-username", defaultGeneratePrometheusUsername, "Username to access Prometheus")
 	viper.SetDefault("prometheus.username", defaultGeneratePrometheusUsername)
-	viper.BindPFlag("prometheus.username", generateCmd.PersistentFlags().Lookup("prometheus-username"))
+	_ = viper.BindPFlag("prometheus.username", generateCmd.PersistentFlags().Lookup("prometheus-username"))
 
 	generateCmd.PersistentFlags().String("prometheus-password", defaultGeneratePrometheusPassword, "Password to access Prometheus")
 	viper.SetDefault("prometheus.password", defaultGeneratePrometheusPassword)
-	viper.BindPFlag("prometheus.password", generateCmd.PersistentFlags().Lookup("prometheus-password"))
+	_ = viper.BindPFlag("prometheus.password", generateCmd.PersistentFlags().Lookup("prometheus-password"))
 
 	generateCmd.PersistentFlags().String("output-filter", defaultGenerateOutputFilter, "Query to filter host results")
 	viper.SetDefault("output.filter", defaultGenerateOutputFilter)
-	viper.BindPFlag("output.filter", generateCmd.PersistentFlags().Lookup("output-filter"))
+	_ = viper.BindPFlag("output.filter", generateCmd.PersistentFlags().Lookup("output-filter"))
 
 	generateCmd.PersistentFlags().String("output-group", defaultGenerateOutputGroup, "Attribute to define the group")
 	viper.SetDefault("output.group", defaultGenerateOutputGroup)
-	viper.BindPFlag("output.group", generateCmd.PersistentFlags().Lookup("output-group"))
+	_ = viper.BindPFlag("output.group", generateCmd.PersistentFlags().Lookup("output-group"))
 
 	generateCmd.PersistentFlags().String("output-name", defaultGenerateOutputName, "Attribute to name the host")
 	viper.SetDefault("output.name", defaultGenerateOutputName)
-	viper.BindPFlag("output.name", generateCmd.PersistentFlags().Lookup("output-name"))
+	_ = viper.BindPFlag("output.name", generateCmd.PersistentFlags().Lookup("output-name"))
 
 	generateCmd.PersistentFlags().String("output-user", defaultGenerateOutputUser, "Attribute to detect the user")
 	viper.SetDefault("output.user", defaultGenerateOutputUser)
-	viper.BindPFlag("output.user", generateCmd.PersistentFlags().Lookup("output-user"))
+	_ = viper.BindPFlag("output.user", generateCmd.PersistentFlags().Lookup("output-user"))
 
 	generateCmd.PersistentFlags().String("output-host", defaultGenerateOutputHost, "Attribute to access the host")
 	viper.SetDefault("output.host", defaultGenerateOutputHost)
-	viper.BindPFlag("output.host", generateCmd.PersistentFlags().Lookup("output-host"))
+	_ = viper.BindPFlag("output.host", generateCmd.PersistentFlags().Lookup("output-host"))
 
 	generateCmd.PersistentFlags().String("output-port", defaultGenerateOutputPort, "Attribute to detect the port")
 	viper.SetDefault("output.port", defaultGenerateOutputPort)
-	viper.BindPFlag("output.port", generateCmd.PersistentFlags().Lookup("output-port"))
+	_ = viper.BindPFlag("output.port", generateCmd.PersistentFlags().Lookup("output-port"))
 
 	generateCmd.PersistentFlags().String("output-file", defaultGenerateOutputFile, "Path to generated hosts file")
 	viper.SetDefault("output.file", defaultGenerateOutputFile)
-	viper.BindPFlag("output.file", generateCmd.PersistentFlags().Lookup("output-file"))
+	_ = viper.BindPFlag("output.file", generateCmd.PersistentFlags().Lookup("output-file"))
 
 	generateCmd.PersistentFlags().String("output-template", defaultGenerateOutputTemplate, "Path to optional hosts template")
 	viper.SetDefault("output.template", defaultGenerateOutputTemplate)
-	viper.BindPFlag("output.template", generateCmd.PersistentFlags().Lookup("output-template"))
+	_ = viper.BindPFlag("output.template", generateCmd.PersistentFlags().Lookup("output-template"))
 }
 
 func generateAction(_ *cobra.Command, _ []string) {
