@@ -134,10 +134,12 @@ func (c *Client) Generate() error {
 // Writer writes the generated content into a file.
 func (c *Client) Writer(content string) error {
 	if c.file == "-" {
-		fmt.Fprint(
+		if _, err := fmt.Fprint(
 			os.Stdout,
 			content,
-		)
+		); err != nil {
+			return errors.Wrap(err, "failed to print message")
+		}
 	} else {
 		if err := os.WriteFile(
 			c.file,
