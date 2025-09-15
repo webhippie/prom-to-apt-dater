@@ -64,12 +64,12 @@ jobs:
       - name: Upload version
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          aws s3 sync --exclude "*" --include "prom-apt-dater-*" dist s3://dl.webhippie.de/prom-apt-dater/${{ github.ref_name }}/
+          aws s3 sync --exclude "*" --include "prom-to-apt-dater-*" dist s3://dl.webhippie.de/prom-to-apt-dater/${{ github.ref_name }}/
 
       - name: Upload testing
         if: startsWith(github.ref, 'refs/heads/')
         run: |
-          aws s3 sync --exclude "*" --include "prom-apt-dater-*" dist s3://dl.webhippie.de/prom-apt-dater/testing/
+          aws s3 sync --exclude "*" --include "prom-to-apt-dater-*" dist s3://dl.webhippie.de/prom-to-apt-dater/testing/
 
       - name: Install cloudsmith
         if: startsWith(github.ref, 'refs/tags/')
@@ -80,11 +80,11 @@ jobs:
       - name: Upload packages
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          for PACKAGE in dist/prom-apt-dater-*.deb; do
+          for PACKAGE in dist/prom-to-apt-dater-*.deb; do
             cloudsmith push deb webhippie/general/any-distro/any-version "${PACKAGE}"
           done
 
-          for PACKAGE in dist/prom-apt-dater-*.rpm; do
+          for PACKAGE in dist/prom-to-apt-dater-*.rpm; do
             cloudsmith push rpm webhippie/general/any-distro/any-version "${PACKAGE}"
           done
 
