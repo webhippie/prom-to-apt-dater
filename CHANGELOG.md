@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.1.0...v2.1.1) (2025-10-13)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.22 docker digest to 56b31e2 ([#144](https://github.com/webhippie/prom-to-apt-dater/issues/144)) ([6595543](https://github.com/webhippie/prom-to-apt-dater/commit/65955438d0682b9b165d23635509df2f6ca2b5cd))
+* **deps:** update docker digests ([#145](https://github.com/webhippie/prom-to-apt-dater/issues/145)) ([7d61b42](https://github.com/webhippie/prom-to-apt-dater/commit/7d61b424e3cf3e7475f4ad20dd153c2d2161f230))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0134653 ([#147](https://github.com/webhippie/prom-to-apt-dater/issues/147)) ([639d10a](https://github.com/webhippie/prom-to-apt-dater/commit/639d10a2cea502857468a4c60eca1ffb642bf6f2))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0ae17b3 ([#149](https://github.com/webhippie/prom-to-apt-dater/issues/149)) ([19bc94a](https://github.com/webhippie/prom-to-apt-dater/commit/19bc94a4b9e3b42df6b821b7f9796fa2688e42d8))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 7300a8d ([#146](https://github.com/webhippie/prom-to-apt-dater/issues/146)) ([0a8d4c7](https://github.com/webhippie/prom-to-apt-dater/commit/0a8d4c79fae74afdd5e1cce73d296f382f1b6661))
+* **patch:** update golang docker tag to v1.25.2 ([#143](https://github.com/webhippie/prom-to-apt-dater/issues/143)) ([284d117](https://github.com/webhippie/prom-to-apt-dater/commit/284d117926bc07e7550853ab1503f45a6e2b0566))
+
 ## [2.1.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.0.0...v2.1.0) (2025-09-22)
 
 
