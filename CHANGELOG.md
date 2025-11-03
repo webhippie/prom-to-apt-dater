@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.1.2...v2.2.0) (2025-11-03)
+
+
+### Features
+
+* **minor:** update module github.com/golangci/golangci-lint/v2 to v2.6.0 ([#160](https://github.com/webhippie/prom-to-apt-dater/issues/160)) ([cbb6f5e](https://github.com/webhippie/prom-to-apt-dater/commit/cbb6f5eee4766364debc30e58aa0779fa6dfae07))
+
 ## [2.1.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.1.1...v2.1.2) (2025-10-20)
 
 
