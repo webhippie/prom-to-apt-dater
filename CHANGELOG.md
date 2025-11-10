@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.2.0...v2.2.1) (2025-11-10)
+
+
+### Bugfixes
+
+* **deps:** update golang:1.25.4-alpine3.21 docker digest to 3289aac ([#164](https://github.com/webhippie/prom-to-apt-dater/issues/164)) ([d7eb568](https://github.com/webhippie/prom-to-apt-dater/commit/d7eb56845327c6b25a612f8be274a20aac6d689a))
+* **patch:** update golang docker tag to v1.25.4 ([#163](https://github.com/webhippie/prom-to-apt-dater/issues/163)) ([ccac544](https://github.com/webhippie/prom-to-apt-dater/commit/ccac54473fe7c6c596a50b9dce709be628e70acf))
+* **patch:** update module github.com/golangci/golangci-lint/v2 to v2.6.1 ([#162](https://github.com/webhippie/prom-to-apt-dater/issues/162)) ([a271caa](https://github.com/webhippie/prom-to-apt-dater/commit/a271caaeffd70b77efdcba73c58fe20094dfd178))
+
 ## [2.2.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.1.2...v2.2.0) (2025-11-03)
 
 
