@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.3.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.2.2...v2.3.0) (2025-12-08)
+
+
+### Features
+
+* **minor:** update alpine docker tag to v3.23 ([#179](https://github.com/webhippie/prom-to-apt-dater/issues/179)) ([a410d0a](https://github.com/webhippie/prom-to-apt-dater/commit/a410d0abbed8faefcae3161b74ee0ef47c6cf03e))
+* **minor:** update module github.com/golangci/golangci-lint/v2 to v2.7.0 ([#178](https://github.com/webhippie/prom-to-apt-dater/issues/178)) ([c076ab1](https://github.com/webhippie/prom-to-apt-dater/commit/c076ab175cafced82edf6266344b8fe6c337fe88))
+
+
+### Bugfixes
+
+* **patch:** update golang docker tag to v1.25.5 ([#176](https://github.com/webhippie/prom-to-apt-dater/issues/176)) ([23f3598](https://github.com/webhippie/prom-to-apt-dater/commit/23f3598cbed42dd6d485ef61042826a3e656dbc5))
+* **patch:** update module github.com/spf13/cobra to v1.10.2 ([#180](https://github.com/webhippie/prom-to-apt-dater/issues/180)) ([794405b](https://github.com/webhippie/prom-to-apt-dater/commit/794405b6f41419037e15d99a113d0f5a01375726))
+
 ## [2.2.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.2.1...v2.2.2) (2025-11-17)
 
 
