@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.0...v2.3.1) (2025-12-22)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 865b95f ([#189](https://github.com/webhippie/prom-to-apt-dater/issues/189)) ([dc40fcf](https://github.com/webhippie/prom-to-apt-dater/commit/dc40fcf78d02668820f1489643c0d45ffd90570a))
+* **deps:** update alpine:3.23 docker digest to be171b5 ([#188](https://github.com/webhippie/prom-to-apt-dater/issues/188)) ([416c73f](https://github.com/webhippie/prom-to-apt-dater/commit/416c73f89ea2d81da3e30047005283642ba04f75))
+
 ## [2.3.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.2.2...v2.3.0) (2025-12-08)
 
 
