@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.3.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.1...v2.3.2) (2026-02-02)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 2510918 ([#198](https://github.com/webhippie/prom-to-apt-dater/issues/198)) ([934aa0e](https://github.com/webhippie/prom-to-apt-dater/commit/934aa0e7b57993298c5c238769529634b3f4bb0d))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([d7ae9b3](https://github.com/webhippie/prom-to-apt-dater/commit/d7ae9b325fd0a578732528b43f2e20b785ad140d))
+* **flake:** updated lockfile [skip ci] ([6469ae5](https://github.com/webhippie/prom-to-apt-dater/commit/6469ae588808eb66dab17a001b8cb4df3df568e7))
+* **flake:** updated lockfile [skip ci] ([e6c4ba1](https://github.com/webhippie/prom-to-apt-dater/commit/e6c4ba1a0afbcbf8d2281d36658ef8cf13719ea3))
+* **flake:** updated lockfile [skip ci] ([8d840c8](https://github.com/webhippie/prom-to-apt-dater/commit/8d840c807f553f20e66756f8091dd4fb20c9b703))
+* **flake:** updated lockfile [skip ci] ([d2ee98c](https://github.com/webhippie/prom-to-apt-dater/commit/d2ee98cb0c5ab4dfc8d9be9b1466486223bc722d))
+* **flake:** updated lockfile [skip ci] ([9e09fe5](https://github.com/webhippie/prom-to-apt-dater/commit/9e09fe53437ab1d05740dd7c58524024e0a66fcb))
+
 ## [2.3.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.0...v2.3.1) (2025-12-22)
 
 
