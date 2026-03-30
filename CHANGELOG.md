@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.4.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.2...v2.4.0) (2026-03-30)
+
+### Dependencies
+
+* **minor:** update module github.com/rs/zerolog to v1.35.0 ([#209](https://github.com/webhippie/prom-to-apt-dater/issues/209)) ([7ffb6cb](https://github.com/webhippie/prom-to-apt-dater/commit/7ffb6cb3fdab4cb4d1f54f0887e1434a0d87e0ad))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([b40cca5](https://github.com/webhippie/prom-to-apt-dater/commit/b40cca546e0a0c8073e34a48af065971f021af70))
+* **flake:** updated lockfile [skip ci] ([fee612b](https://github.com/webhippie/prom-to-apt-dater/commit/fee612b6aa59f5462848d087a1dd41906ccac768))
+* **flake:** updated lockfile [skip ci] ([4a891fc](https://github.com/webhippie/prom-to-apt-dater/commit/4a891fcb37e3677f71d4126e372d14598e597013))
+* **flake:** updated lockfile [skip ci] ([497dedf](https://github.com/webhippie/prom-to-apt-dater/commit/497dedf90fe6b023b3246f5693afd111e8dc2583))
+* **flake:** updated lockfile [skip ci] ([5df451f](https://github.com/webhippie/prom-to-apt-dater/commit/5df451f8f6843b8e7999056fd7d05d8251d48840))
+* **flake:** updated lockfile [skip ci] ([fc64b6e](https://github.com/webhippie/prom-to-apt-dater/commit/fc64b6e60cfb4dbf1907524cb07380b07ee65d91))
+* **flake:** updated lockfile [skip ci] ([86f102e](https://github.com/webhippie/prom-to-apt-dater/commit/86f102e378458944d6f39ffe414f78e533b84331))
+* **flake:** updated lockfile [skip ci] ([67c1bba](https://github.com/webhippie/prom-to-apt-dater/commit/67c1bba1cc76eb8c3d5398f25e15c4886b94f24f))
+
 ## [2.3.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.1...v2.3.2) (2026-02-02)
 
 ### Bugfixes
