@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.0...v2.4.1) (2026-04-20)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 5b10f43 ([#211](https://github.com/webhippie/prom-to-apt-dater/issues/211)) ([31c453d](https://github.com/webhippie/prom-to-apt-dater/commit/31c453d4c236925234031a9247f6fc6df9030f96))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([1eede0d](https://github.com/webhippie/prom-to-apt-dater/commit/1eede0d6edca2a8c7ddf7a595bde0fea50933e69))
+* **flake:** updated lockfile [skip ci] ([4419b1c](https://github.com/webhippie/prom-to-apt-dater/commit/4419b1c0299a42c8e2fea7ce8213040a0e37cfb7))
+* **flake:** updated lockfile [skip ci] ([507c917](https://github.com/webhippie/prom-to-apt-dater/commit/507c917893bec60348c301e817b0f2e8f64d0660))
+
 ## [2.4.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.3.2...v2.4.0) (2026-03-30)
 
 ### Dependencies
