@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.4.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.1...v2.4.2) (2026-04-27)
+
+### Dependencies
+
+* **patch:** update module github.com/rs/zerolog to v1.35.1 ([#213](https://github.com/webhippie/prom-to-apt-dater/issues/213)) ([50e4dc1](https://github.com/webhippie/prom-to-apt-dater/commit/50e4dc17a3cadc4c80c89c02f997b20cf8095271))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([8dfbe74](https://github.com/webhippie/prom-to-apt-dater/commit/8dfbe7484a12b5f98dfcd1a4e517ee554fc6b01a))
+
 ## [2.4.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.0...v2.4.1) (2026-04-20)
 
 ### Bugfixes
