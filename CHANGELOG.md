@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.5.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.2...v2.5.0) (2026-05-25)
+
+### Features
+
+* upgrade build process to go 1.25 ([6970bb0](https://github.com/webhippie/prom-to-apt-dater/commit/6970bb09acf085c48de331d994749d0e32b9c6dd))
+* upgrade required go version to 1.26 ([fb21374](https://github.com/webhippie/prom-to-apt-dater/commit/fb213742717131f0e71a102d5564f70893db4265))
+
+### Dependencies
+
+* **minor:** update golang docker tag to v1.26.3 ([#217](https://github.com/webhippie/prom-to-apt-dater/issues/217)) ([5e9138c](https://github.com/webhippie/prom-to-apt-dater/commit/5e9138cf1f5ad473cd063cf03fbdeb17c5caecfb))
+
+### Miscellaneous
+
+* enable skip-package-name-collision-with-go-std for revive ([5ff149a](https://github.com/webhippie/prom-to-apt-dater/commit/5ff149a2014f192eddd02afe0757bf968a965ad1))
+* **flake:** updated lockfile [skip ci] ([bfd5c92](https://github.com/webhippie/prom-to-apt-dater/commit/bfd5c927e63bccced281c9c94163fe20c8ba8038))
+* **flake:** updated lockfile [skip ci] ([ca575f7](https://github.com/webhippie/prom-to-apt-dater/commit/ca575f7415ef24e8136c98802bc82d049a87bd70))
+* **flake:** updated lockfile [skip ci] ([2381287](https://github.com/webhippie/prom-to-apt-dater/commit/2381287cc1eeddda039458b16645c6df64bf862e))
+* **flake:** updated lockfile [skip ci] ([daf7c6c](https://github.com/webhippie/prom-to-apt-dater/commit/daf7c6c92f6668af865c97b92db4f5928118ca12))
+* replace nixfmt package ([bbdeb21](https://github.com/webhippie/prom-to-apt-dater/commit/bbdeb21c7bee882e06bf8961592604d8af45da54))
+
 ## [2.4.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.1...v2.4.2) (2026-04-27)
 
 ### Dependencies
