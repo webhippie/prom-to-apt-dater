@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.5.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.5.0...v2.5.1) (2026-06-08)
+
+### Dependencies
+
+* **patch:** update golang docker tag to v1.26.4 ([#219](https://github.com/webhippie/prom-to-apt-dater/issues/219)) ([2a93b54](https://github.com/webhippie/prom-to-apt-dater/commit/2a93b54e9843ac3d33002eb918229c0aa30fb6be))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([1c5c521](https://github.com/webhippie/prom-to-apt-dater/commit/1c5c5217e29ec34096a458bea678d486799baf62))
+* **flake:** updated lockfile [skip ci] ([3d93e79](https://github.com/webhippie/prom-to-apt-dater/commit/3d93e790ba519c8775ffa53a10ae177626269448))
+
 ## [2.5.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.4.2...v2.5.0) (2026-05-25)
 
 ### Features
