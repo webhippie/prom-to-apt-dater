@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.26.4-alpine@sha256:162b257ae1156df92d48e2de5abe69f657fc4961f0ea0e5376837a9ffed8160b AS builder
+FROM --platform=$BUILDPLATFORM golang:1.26.4-alpine@sha256:f23e8b227fb4493eabe03bede4d5a32d04092da71962f1fb79b5f7d1e6c2a17f AS builder
 
 RUN apk add --no-cache -U git curl
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/go/pkg \
     --mount=type=cache,target=/root/.cache/go-build \
     task generate build GOOS=${TARGETOS} GOARCH=${TARGETARCH}
 
-FROM alpine:3.24@sha256:660e0827bd401543d81323d4886abbd08fda0fe3ba84337837d0b11a67251283
+FROM alpine:3.24@sha256:a2d49ea686c2adfe3c992e47dc3b5e7fa6e6b5055609400dc2acaeb241c829f4
 
 RUN apk add --no-cache ca-certificates mailcap
 
