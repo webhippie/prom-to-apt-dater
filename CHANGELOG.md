@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.6.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.5.1...v2.6.0) (2026-06-15)
+
+### Bugfixes
+
+* **deps:** update docker digests ([9d0e87d](https://github.com/webhippie/prom-to-apt-dater/commit/9d0e87d30c4534b2af3090abae1e997657f7aa3e))
+* **deps:** update docker digests ([ab6fb41](https://github.com/webhippie/prom-to-apt-dater/commit/ab6fb41ca5aac13972758bd859f01df937e324ba))
+* **deps:** update docker digests ([f586213](https://github.com/webhippie/prom-to-apt-dater/commit/f5862137e5aa3f6dc01ca183efed72f8121ea1e9))
+* **deps:** update docker digests ([#224](https://github.com/webhippie/prom-to-apt-dater/issues/224)) ([5971f79](https://github.com/webhippie/prom-to-apt-dater/commit/5971f79cc21ac52c9e382b895babf87c0848d605))
+
+### Dependencies
+
+* **minor:** update alpine docker tag to v3.24 ([#221](https://github.com/webhippie/prom-to-apt-dater/issues/221)) ([a2c2c3d](https://github.com/webhippie/prom-to-apt-dater/commit/a2c2c3dd72eee7c9689102383098ea64fec0f221))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([97e62fd](https://github.com/webhippie/prom-to-apt-dater/commit/97e62fd5b0098c554b9c92281e78d34cbf3124d7))
+
 ## [2.5.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.5.0...v2.5.1) (2026-06-08)
 
 ### Dependencies
