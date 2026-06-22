@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.6.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.6.0...v2.6.1) (2026-06-22)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#225](https://github.com/webhippie/prom-to-apt-dater/issues/225)) ([a5d7e0f](https://github.com/webhippie/prom-to-apt-dater/commit/a5d7e0f8ecd2e35cd2fe60b30a35d823d92e7b29))
+* **deps:** update docker digests ([#226](https://github.com/webhippie/prom-to-apt-dater/issues/226)) ([92c48a0](https://github.com/webhippie/prom-to-apt-dater/commit/92c48a0e757a22bb96750518ee514b7e1091f5fb))
+* **deps:** update docker digests ([#227](https://github.com/webhippie/prom-to-apt-dater/issues/227)) ([d6cab3f](https://github.com/webhippie/prom-to-apt-dater/commit/d6cab3f4892c2b9f7b1b6c70e23fc53785f164d7))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([81c5783](https://github.com/webhippie/prom-to-apt-dater/commit/81c5783ff95e9f6fbaaa1976414a328bffab4496))
+
 ## [2.6.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.5.1...v2.6.0) (2026-06-15)
 
 ### Bugfixes
