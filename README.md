@@ -19,12 +19,22 @@ Cloudsmith is the only fully hosted, cloud-native, universal package management
 solution, that enables your organization to create, store and share packages in
 any format, to any place, with total confidence.
 
+## Prerequisites
+
+We use [mise][mise] to manage all required tools and their versions. Install it
+by following the [official installation instructions][mise-install], then run
+the following commands inside the repository to activate mise and install all
+tools defined in `mise.toml`:
+
+```console
+mise trust
+mise install
+```
+
 ## Build
 
-If you are not familiar with [Nix][nix] it is up to you to have a working
-environment for Go (>= 1.26.0) as the setup won't we covered within this guide.
-Please follow the official install instructions for [Go][golang]. Beside that we
-are using [go-task][gotask] to define all commands to build this project.
+Since all required commands ar part of our [go-task][gotask] taskfile the
+commands you got to execute are quite simple:
 
 ```console
 git clone https://github.com/webhippie/prom-to-apt-dater.git
@@ -34,29 +44,18 @@ task build
 ./bin/prom-to-apt-dater -h
 ```
 
-If you got [Nix][nix] and [Direnv][direnv] configured you can simply execute
-the following commands to get al dependencies including [go-task][gotask] and
-the required runtimes installed. You are also able to directly use the process
-manager of [devenv][devenv]:
-
-```console
-cat << EOF > .envrc
-use flake . --impure --extra-experimental-features nix-command
-EOF
-
-direnv allow
-```
-
 ## Development
 
-To start developing on this project you have to execute only one command to
-build a binary matching your platform:
+To start developing on this project you have to execute only a few commands in
+multiple terminal tabs or windows:
 
 ```console
-task build
+task watch
 ```
 
 After that you can simply execute the tool via `bin/prom-to-apt-dater -h`.
+Generally it supports hot reloading which means the binary gets automatically
+recompiled on code changes.
 
 ## Security
 
@@ -65,7 +64,37 @@ If you find a security issue please contact
 
 ## Contributing
 
-Fork -> Patch -> Push -> Pull Request
+Generally we are following [conventional commits][commits] when we apply
+changes. That way we are able to generate proper changelogs for every release.
+Please use always pull requests to integrate new functionalities or to fix
+issues.
+
+For the release process we are following [semantic versioning][semver] which
+clearly indicates if a new version just resolves bugs, includes new features or
+even includes breaking changes.
+
+After installing the tools via `mise install` as described above set up the
+pre-commit hooks so they run automatically on every commit:
+
+```console
+prek install --hook-type pre-commit --hook-type commit-msg
+```
+
+> `prek` is managed by mise and will be available after `mise install`.
+
+If you have changed something on the source you should simply commit following
+the mentioned conventions:
+
+```console
+git checkout -b feat/new-feature
+git add --all
+git commit -m 'feat: added awesome new feature'
+git push --set-upstream origin feat/new-feature
+```
+
+After pushing your changes into the Git repository you should create a pull
+request on GitHub. If the pull request have been merged and everything built
+fine it will also create automatically a new release at least once a week.
 
 ## Authors
 
@@ -83,16 +112,17 @@ Copyright (c) 2019 Thomas Boerger <thomas@webhippie.de>
 
 [aptdater]: https://github.com/DE-IBH/apt-dater
 [prometheus]: https://prometheus.io/
-[downloads]: https://dl.webhippie.de/#prom-to-apt-dater/
+[pkgrepo]: https://cloudsmith.io/~webhippie/repos/general/groups/
 [releases]: https://github.com/webhippie/prom-to-apt-dater/releases
+[downloads]: https://dl.webhippie.de/#prom-to-apt-dater/
 [ghcr]: https://github.com/webhippie/prom-to-apt-dater/pkgs/container/prom-to-apt-dater
 [dockerhub]: https://hub.docker.com/r/webhippie/prom-to-apt-dater/tags/
 [quay]: https://quay.io/repository/webhippie/prom-to-apt-dater?tab=tags
 [docs]: https://webhippie.github.io/prom-to-apt-dater/#getting-started
-[nix]: https://nixos.org/
-[golang]: http://golang.org/doc/install.html
-[gotask]: https://taskfile.dev/installation/
-[direnv]: https://direnv.net/
-[devenv]: https://devenv.sh/
-[pkgrepo]: https://cloudsmith.io/~webhippie/repos/general/groups/
 [cloudsmith]: https://cloudsmith.com/
+[gotask]: https://taskfile.dev/installation/
+[devcontainer]: https://containers.dev/
+[mise]: https://mise.jdx.dev/
+[mise-install]: https://mise.jdx.dev/getting-started.html
+[commits]: https://www.conventionalcommits.org/en/v1.0.0/
+[semver]: https://semver.org/

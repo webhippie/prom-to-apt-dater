@@ -3,9 +3,9 @@ package prometheus
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"net/http"
 
-	"github.com/jackspirou/syscerts"
 	"github.com/prometheus/client_golang/api"
 	"github.com/prometheus/client_golang/api/prometheus/v1"
 )
@@ -48,10 +48,16 @@ func (c *Client) Targets() ([]map[string]interface{}, error) {
 
 // RoundTrip implements the RoundTripper interface.
 func (c *Client) RoundTrip(req *http.Request) (*http.Response, error) {
+	rootCAs, err := x509.SystemCertPool()
+
+	if err != nil || rootCAs == nil {
+		rootCAs = x509.NewCertPool()
+	}
+
 	transport := &http.Transport{
 		Proxy: http.ProxyFromEnvironment,
 		TLSClientConfig: &tls.Config{
-			RootCAs: syscerts.SystemRootsPool(),
+			RootCAs: rootCAs,
 		},
 	}
 

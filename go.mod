@@ -1,10 +1,9 @@
 module github.com/webhippie/prom-to-apt-dater
 
-go 1.26.0
+go 1.26.5
 
 require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
-	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.5.1
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.24.1
