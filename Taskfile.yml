@@ -58,7 +58,7 @@ tasks:
     cmds:
       - go test -coverprofile coverage.out {{ .PACKAGES }}
 
-  build:server:
+  build:
     desc: Build all required binary artifacts
     cmds:
       - go build -v
