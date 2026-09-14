@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.8.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.7.1...v2.8.0) (2026-09-14)
+
+### Features
+
+* restructure repo and build processes ([1082aee](https://github.com/webhippie/prom-to-apt-dater/commit/1082aee9b37f34800f5cfce8d216774cbb58715d))
+
+### Bugfixes
+
+* correctly renamed build task ([4161ed1](https://github.com/webhippie/prom-to-apt-dater/commit/4161ed1c75e0323a074ab49d9f0f47ac515255ae))
+* **deps:** update golang:1.27.1-alpine docker digest to cf6fca6 ([#247](https://github.com/webhippie/prom-to-apt-dater/issues/247)) ([4397f23](https://github.com/webhippie/prom-to-apt-dater/commit/4397f23e1416ed92c79f9c68e37a2b9a34c386c5))
+
+### Dependencies
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.27.0 ([91d8e3b](https://github.com/webhippie/prom-to-apt-dater/commit/91d8e3b90c890a459c626558bc70aa3243eb42fe))
+* **minor:** update dependency hugo-extended to v0.166.0 ([c25eb65](https://github.com/webhippie/prom-to-apt-dater/commit/c25eb65583c1163a1e8cc79e27cf9fc9aa85e72d))
+* **minor:** update dependency task to v3.53.1 ([#249](https://github.com/webhippie/prom-to-apt-dater/issues/249)) ([4180921](https://github.com/webhippie/prom-to-apt-dater/commit/4180921f2f3cc17c8d8d151bcb28fccf55d922ae))
+* **minor:** update golang docker tag to v1.27.0 ([#243](https://github.com/webhippie/prom-to-apt-dater/issues/243)) ([a42e559](https://github.com/webhippie/prom-to-apt-dater/commit/a42e559d9810b63f362109a37ce8a09a86d5aaae))
+* **minor:** update module github.com/stretchr/testify to v1.12.0 ([#241](https://github.com/webhippie/prom-to-apt-dater/issues/241)) ([0ac2198](https://github.com/webhippie/prom-to-apt-dater/commit/0ac219810dbe803ded7de5b28ca5d704e0daadaa))
+* **patch:** update dependency prek to v0.5.3 ([#251](https://github.com/webhippie/prom-to-apt-dater/issues/251)) ([5b67682](https://github.com/webhippie/prom-to-apt-dater/commit/5b67682e587504fa9964880b45bb3093de6d1d87))
+* **patch:** update golang docker tag to v1.27.1 ([#246](https://github.com/webhippie/prom-to-apt-dater/issues/246)) ([9d21f99](https://github.com/webhippie/prom-to-apt-dater/commit/9d21f99db4f3cce4e719f88a77a51a414d50fa63))
+* **patch:** update module github.com/stretchr/testify to v1.12.1 ([#242](https://github.com/webhippie/prom-to-apt-dater/issues/242)) ([77bdf9b](https://github.com/webhippie/prom-to-apt-dater/commit/77bdf9bf185f4a02dc9a10891315f5ed756cb303))
+
 ## [2.7.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.7.0...v2.7.1) (2026-08-17)
 
 ## [2.7.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.6.2...v2.7.0) (2026-07-27)
