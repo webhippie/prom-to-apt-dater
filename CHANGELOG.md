@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.8.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.0...v2.8.1) (2026-09-21)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to 294b683 ([#256](https://github.com/webhippie/prom-to-apt-dater/issues/256)) ([62c7b29](https://github.com/webhippie/prom-to-apt-dater/commit/62c7b29acfc96b933abea7ade3546ba18ec8f006))
+* **deps:** update alpine:3.24 docker digest to 5b02b42 ([#254](https://github.com/webhippie/prom-to-apt-dater/issues/254)) ([78b6a68](https://github.com/webhippie/prom-to-apt-dater/commit/78b6a68239f6b7c01486023d615815438d8a4c42))
+* **deps:** update docker digests ([#253](https://github.com/webhippie/prom-to-apt-dater/issues/253)) ([9b39f5a](https://github.com/webhippie/prom-to-apt-dater/commit/9b39f5ab29fe6211eb99b19f6eaa3d960453787f))
+* **deps:** update golang:1.27.1-alpine docker digest to 4cb7ac9 ([#255](https://github.com/webhippie/prom-to-apt-dater/issues/255)) ([02a5c74](https://github.com/webhippie/prom-to-apt-dater/commit/02a5c74dd2998f709eece793073421c49db1ca51))
+
+### Dependencies
+
+* **mise:** update dependency goreleaser to v2.18.2 ([#252](https://github.com/webhippie/prom-to-apt-dater/issues/252)) ([faff261](https://github.com/webhippie/prom-to-apt-dater/commit/faff261b61e1e61c3d3cd4f452984b29371de4f9))
+
 ## [2.8.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.7.1...v2.8.0) (2026-09-14)
 
 ### Features
