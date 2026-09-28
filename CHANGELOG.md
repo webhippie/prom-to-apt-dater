@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.8.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.1...v2.8.2) (2026-09-28)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to 8a5910f ([#257](https://github.com/webhippie/prom-to-apt-dater/issues/257)) ([cc4c290](https://github.com/webhippie/prom-to-apt-dater/commit/cc4c2902f0fff89a6656ec146c975b51ee2e022d))
+
+### Dependencies
+
+* **mise:** update dependency golangci-lint to v2.14.0 ([#258](https://github.com/webhippie/prom-to-apt-dater/issues/258)) ([5774cae](https://github.com/webhippie/prom-to-apt-dater/commit/5774caeb0a3abafd84c07d3b567564c63c10a948))
+* **mise:** update dependency prek to v0.5.4 ([#259](https://github.com/webhippie/prom-to-apt-dater/issues/259)) ([adb4ad3](https://github.com/webhippie/prom-to-apt-dater/commit/adb4ad3f465897d9a89205ecf23a8d1675c36e06))
+
 ## [2.8.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.0...v2.8.1) (2026-09-21)
 
 ### Bugfixes
