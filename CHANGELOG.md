@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.9.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.2...v2.9.0) (2026-10-12)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.2-alpine docker digest to f92b6ef ([#270](https://github.com/webhippie/prom-to-apt-dater/issues/270)) ([8467a47](https://github.com/webhippie/prom-to-apt-dater/commit/8467a472660f05b9c4bbe2f32a9914401faed8d5))
+
+### Dependencies
+
+* **minor:** update module github.com/prometheus/client_golang to v1.25.0 ([#266](https://github.com/webhippie/prom-to-apt-dater/issues/266)) ([a823ff4](https://github.com/webhippie/prom-to-apt-dater/commit/a823ff4142e80785e2b40e3cd4343c9ea9598c98))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.28.0 ([#265](https://github.com/webhippie/prom-to-apt-dater/issues/265)) ([e353b86](https://github.com/webhippie/prom-to-apt-dater/commit/e353b863198a373d049bf46ca4ebe05d3e1d17ef))
+* **mise:** update dependency go to v1.27.2 ([#267](https://github.com/webhippie/prom-to-apt-dater/issues/267)) ([ea28447](https://github.com/webhippie/prom-to-apt-dater/commit/ea284474bde02109aa1536acd07dc87f65d413f7))
+* **mise:** update dependency goreleaser to v2.18.3 ([#269](https://github.com/webhippie/prom-to-apt-dater/issues/269)) ([cb2dfa2](https://github.com/webhippie/prom-to-apt-dater/commit/cb2dfa24399e254c552a5565579cf5bc4a6f1c92))
+* **mise:** update dependency hugo-extended to v0.167.0 ([#261](https://github.com/webhippie/prom-to-apt-dater/issues/261)) ([309e667](https://github.com/webhippie/prom-to-apt-dater/commit/309e667e7d9ba62671e8c05d84cbb242b40a52a5))
+* **mise:** update dependency prek to v0.5.5 ([#264](https://github.com/webhippie/prom-to-apt-dater/issues/264)) ([c371ae0](https://github.com/webhippie/prom-to-apt-dater/commit/c371ae0608223baedad21bc7493ed10907a9bc35))
+* **mise:** update dependency task to v3.54.0 ([#263](https://github.com/webhippie/prom-to-apt-dater/issues/263)) ([9f39096](https://github.com/webhippie/prom-to-apt-dater/commit/9f39096e0919dbd363b0cefbbaa29f0429d1f2d0))
+* **patch:** update golang docker tag to v1.27.2 ([#268](https://github.com/webhippie/prom-to-apt-dater/issues/268)) ([012b9d0](https://github.com/webhippie/prom-to-apt-dater/commit/012b9d0fc3ca7ab27da9cb2c5bc5965dca9dd857))
+
 ## [2.8.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.1...v2.8.2) (2026-09-28)
 
 ### Bugfixes
