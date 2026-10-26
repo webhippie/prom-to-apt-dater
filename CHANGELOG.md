@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.9.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.0...v2.9.1) (2026-10-26)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to 71e9b7b ([#283](https://github.com/webhippie/prom-to-apt-dater/issues/283)) ([c498d23](https://github.com/webhippie/prom-to-apt-dater/commit/c498d2387e9d8f8193f7fc061570329218b862d9))
+* **deps:** update alpine:3.24 docker digest to be26560 ([#287](https://github.com/webhippie/prom-to-apt-dater/issues/287)) ([83a7de6](https://github.com/webhippie/prom-to-apt-dater/commit/83a7de6a4b1cad82be9fb00813204a132d6e4325))
+* **deps:** update alpine:3.24 docker digest to c6b073f ([#281](https://github.com/webhippie/prom-to-apt-dater/issues/281)) ([b009565](https://github.com/webhippie/prom-to-apt-dater/commit/b009565b85d8cc2eebd97503748c58c8c48c20bc))
+* **deps:** update golang:1.27.3-alpine docker digest to b8c9b82 ([#284](https://github.com/webhippie/prom-to-apt-dater/issues/284)) ([0308fd8](https://github.com/webhippie/prom-to-apt-dater/commit/0308fd859f42b916450d4fca3bcb33686cabbb9c))
+* **deps:** update golang:1.27.3-alpine docker digest to d530cf6 ([#282](https://github.com/webhippie/prom-to-apt-dater/issues/282)) ([7ad78f3](https://github.com/webhippie/prom-to-apt-dater/commit/7ad78f35e0d300593762bca65f211643c8fcb3d5))
+
+### Dependencies
+
+* **mise:** update dependency cosign to v3.1.4 ([#279](https://github.com/webhippie/prom-to-apt-dater/issues/279)) ([0a9f750](https://github.com/webhippie/prom-to-apt-dater/commit/0a9f750f9c60e116087c6b1dd0384e5b43c9511b))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.29.0 ([#273](https://github.com/webhippie/prom-to-apt-dater/issues/273)) ([bb08bf2](https://github.com/webhippie/prom-to-apt-dater/commit/bb08bf2d44aac049bcec9cb4b4e172de615f94e6))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.30.0 ([#285](https://github.com/webhippie/prom-to-apt-dater/issues/285)) ([214f2d7](https://github.com/webhippie/prom-to-apt-dater/commit/214f2d77dfb21926e2034c461039efd5d6f3a3ba))
+* **mise:** update dependency go to v1.27.3 ([#277](https://github.com/webhippie/prom-to-apt-dater/issues/277)) ([6c5c86e](https://github.com/webhippie/prom-to-apt-dater/commit/6c5c86e4c25bb5f43a124f952e0eea2a711a1b0a))
+* **mise:** update dependency golangci-lint to v2.15.0 ([#274](https://github.com/webhippie/prom-to-apt-dater/issues/274)) ([eef0dc4](https://github.com/webhippie/prom-to-apt-dater/commit/eef0dc482d9ac3a314295d0381026e13c19a7064))
+* **mise:** update dependency goreleaser to v2.19.0 ([#286](https://github.com/webhippie/prom-to-apt-dater/issues/286)) ([a091cda](https://github.com/webhippie/prom-to-apt-dater/commit/a091cdaf3d5982b91c0dfc6b292cd58d35827f09))
+* **mise:** update dependency hugo-extended to v0.168.0 ([#272](https://github.com/webhippie/prom-to-apt-dater/issues/272)) ([a373e88](https://github.com/webhippie/prom-to-apt-dater/commit/a373e88e27600ae4df5cb7ea971db6e63c80fee0))
+* **mise:** update dependency prek to v0.5.6 ([#275](https://github.com/webhippie/prom-to-apt-dater/issues/275)) ([5cf8f2e](https://github.com/webhippie/prom-to-apt-dater/commit/5cf8f2e4b846bd9ab1d76aa32fd5ca4ae763b862))
+* **mise:** update dependency prek to v0.5.7 ([#280](https://github.com/webhippie/prom-to-apt-dater/issues/280)) ([74b28ac](https://github.com/webhippie/prom-to-apt-dater/commit/74b28ac0797a97ce59d9fb2725b5792b4540fb22))
+* **patch:** update golang docker tag to v1.27.3 ([#278](https://github.com/webhippie/prom-to-apt-dater/issues/278)) ([a1d9957](https://github.com/webhippie/prom-to-apt-dater/commit/a1d99574dbef0b7dc1d365a673ee4e54ada33cdb))
+
 ## [2.9.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.8.2...v2.9.0) (2026-10-12)
 
 ### Bugfixes
