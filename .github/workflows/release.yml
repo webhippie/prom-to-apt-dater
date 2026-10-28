@@ -43,7 +43,7 @@ jobs:
       - name: Setup nodejs
         uses: actions/setup-node@v7
         with:
-          node-version: 24.x
+          node-version: 26.x
 
       - name: Write buildtime
         run: date >| .github/RELEASE
