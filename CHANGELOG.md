@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.9.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.1...v2.9.2) (2026-11-02)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.3-alpine docker digest to d200d2d ([#288](https://github.com/webhippie/prom-to-apt-dater/issues/288)) ([d3c7934](https://github.com/webhippie/prom-to-apt-dater/commit/d3c7934bb7b9b32b47c6f81548fa877cde011eb5))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.30.1 ([#291](https://github.com/webhippie/prom-to-apt-dater/issues/291)) ([5b8611f](https://github.com/webhippie/prom-to-apt-dater/commit/5b8611fb41e7354ece86711b6f7b93d53bf9eede))
+* **mise:** update dependency hugo-extended to v0.169.0 ([#289](https://github.com/webhippie/prom-to-apt-dater/issues/289)) ([3b6b8cd](https://github.com/webhippie/prom-to-apt-dater/commit/3b6b8cdec93c2a1b90593d7a4c58728423c710c3))
+* **mise:** update dependency prek to v0.5.9 ([#293](https://github.com/webhippie/prom-to-apt-dater/issues/293)) ([d2ae1ef](https://github.com/webhippie/prom-to-apt-dater/commit/d2ae1ef5380f6bb7c9648711382b071b310dd263))
+* **mise:** update node.js to v26 ([#292](https://github.com/webhippie/prom-to-apt-dater/issues/292)) ([657320e](https://github.com/webhippie/prom-to-apt-dater/commit/657320e2c2ca1c0d7090a6debcf4974ca77e3957))
+
 ## [2.9.1](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.0...v2.9.1) (2026-10-26)
 
 ### Bugfixes
