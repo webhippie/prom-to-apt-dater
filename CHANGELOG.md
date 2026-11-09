@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.9.3](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.2...v2.9.3) (2026-11-09)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#294](https://github.com/webhippie/prom-to-apt-dater/issues/294)) ([3cc4c8c](https://github.com/webhippie/prom-to-apt-dater/commit/3cc4c8c6610f46ce970a21844d5f52f9718f464a))
+
+### Dependencies
+
+* **mise:** update dependency goreleaser to v2.20.0 ([#296](https://github.com/webhippie/prom-to-apt-dater/issues/296)) ([dc40469](https://github.com/webhippie/prom-to-apt-dater/commit/dc404694359a559aa797b545ac7e67c432cec0ca))
+* **mise:** update dependency prek to v0.5.10 ([#295](https://github.com/webhippie/prom-to-apt-dater/issues/295)) ([12121c3](https://github.com/webhippie/prom-to-apt-dater/commit/12121c39f1703a2327dff80243bd28cdda32d7cb))
+
 ## [2.9.2](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.1...v2.9.2) (2026-11-02)
 
 ### Bugfixes
