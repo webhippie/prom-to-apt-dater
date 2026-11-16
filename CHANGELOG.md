@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.9.4](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.3...v2.9.4) (2026-11-16)
+
+* automated release update [skip ci] ([855cc72](https://github.com/webhippie/prom-to-apt-dater/commit/855cc7209c923f94c2e3f7c2f6f6a5bd27f2f0a3))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.4-alpine docker digest to 70bd7dd ([#304](https://github.com/webhippie/prom-to-apt-dater/issues/304)) ([fcec1e8](https://github.com/webhippie/prom-to-apt-dater/commit/fcec1e866e0936732c9d5edda9b925c06c4d89c0))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.0 ([#300](https://github.com/webhippie/prom-to-apt-dater/issues/300)) ([73f5fb6](https://github.com/webhippie/prom-to-apt-dater/commit/73f5fb603d53298382e7a7f1006419a287cfcb54))
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.1 ([#301](https://github.com/webhippie/prom-to-apt-dater/issues/301)) ([e07ab45](https://github.com/webhippie/prom-to-apt-dater/commit/e07ab456225e6754d49139adf00818c6158174d8))
+* **mise:** update dependency go to v1.27.4 ([#297](https://github.com/webhippie/prom-to-apt-dater/issues/297)) ([022b197](https://github.com/webhippie/prom-to-apt-dater/commit/022b19728b9610c672d10fb457ec8d4997ae3090))
+* **mise:** update dependency goreleaser to v2.20.1 ([#299](https://github.com/webhippie/prom-to-apt-dater/issues/299)) ([a2e5fce](https://github.com/webhippie/prom-to-apt-dater/commit/a2e5fce06b392f16b6df1d3ad4f07b33efe6c8e0))
+* **mise:** update dependency goreleaser to v2.20.2 ([#302](https://github.com/webhippie/prom-to-apt-dater/issues/302)) ([3ce8e0e](https://github.com/webhippie/prom-to-apt-dater/commit/3ce8e0e00e2b5b256bf115f5c68b1e08f26ea3e6))
+* **mise:** update dependency hugo-extended to v0.170.0 ([#303](https://github.com/webhippie/prom-to-apt-dater/issues/303)) ([c58c036](https://github.com/webhippie/prom-to-apt-dater/commit/c58c036cb394881e9dc594a915965885cc34fa19))
+* **patch:** update golang docker tag to v1.27.4 ([#298](https://github.com/webhippie/prom-to-apt-dater/issues/298)) ([cbc4622](https://github.com/webhippie/prom-to-apt-dater/commit/cbc4622f019e48964a42d922d16d16dc576b285b))
+
 ## [2.9.3](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.2...v2.9.3) (2026-11-09)
 
 ### Bugfixes
