@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.10.0](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.4...v2.10.0) (2026-11-23)
+
+* automated release update [skip ci] ([2ee4e59](https://github.com/webhippie/prom-to-apt-dater/commit/2ee4e59ccd169da9fffc0815be6ebc0c419eb16a))
+
+### Features
+
+* switch to plain hugo and resolve deprecations ([c0f2752](https://github.com/webhippie/prom-to-apt-dater/commit/c0f275249c59774a4ec5fa0983b2e717491c97ba))
+
+### Dependencies
+
+* **mise:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.31.3 ([#306](https://github.com/webhippie/prom-to-apt-dater/issues/306)) ([b38057e](https://github.com/webhippie/prom-to-apt-dater/commit/b38057ec8f0ee4747168af800d34e9039690a753))
+* **mise:** update dependency goreleaser to v2.20.3 ([#308](https://github.com/webhippie/prom-to-apt-dater/issues/308)) ([d859021](https://github.com/webhippie/prom-to-apt-dater/commit/d859021d9db0ae530877d1f5dedc37803e5ae2da))
+* **mise:** update dependency hugo-extended to v0.170.1 ([#307](https://github.com/webhippie/prom-to-apt-dater/issues/307)) ([689c050](https://github.com/webhippie/prom-to-apt-dater/commit/689c05082bf05e9a187c8582a22b113a1cada047))
+* **mise:** update dependency prek to v0.5.11 ([#305](https://github.com/webhippie/prom-to-apt-dater/issues/305)) ([f625fb6](https://github.com/webhippie/prom-to-apt-dater/commit/f625fb613d839dbbd9a1f4110d68806c398949dc))
+
 ## [2.9.4](https://github.com/webhippie/prom-to-apt-dater/compare/v2.9.3...v2.9.4) (2026-11-16)
 
 * automated release update [skip ci] ([855cc72](https://github.com/webhippie/prom-to-apt-dater/commit/855cc7209c923f94c2e3f7c2f6f6a5bd27f2f0a3))
